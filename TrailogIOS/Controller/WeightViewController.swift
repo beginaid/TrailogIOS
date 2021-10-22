@@ -22,10 +22,10 @@ class WeightViewController: UIViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let user = Auth.auth().currentUser {
-            let docRef = Firestore.firestore().collection("weights_\(user.uid)")
+            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionNameWeight)_\(user.uid)")
             listener = docRef.addSnapshotListener() { (querySnapshot, error) in
                 if let error = error {
-                    SVProgressHUD.showError(withStatus: "エラーが発生しました")
+                    Utils.showError(Const.errorDefault)
                     print(error)
                     return
                 }
@@ -33,10 +33,8 @@ class WeightViewController: UIViewController, ChartViewDelegate {
                 self.weightArray = []
                 for document in querySnapshot!.documents {
                     let date = Utils.getDateFromYearMonthDay(document.documentID)
-                    print(user.uid)
-                    print(date)
                     self.dateArray.append(date)
-                    self.weightArray.append((document.data()["weight"] as! NSString).doubleValue)
+                    self.weightArray.append((document.data()[Const.weightEN] as! NSString).doubleValue)
                 }
                 if self.dateArray.count > 0 {
                     self.lineChart.isHidden = false
@@ -57,7 +55,7 @@ class WeightViewController: UIViewController, ChartViewDelegate {
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         if let dataSet = lineChart.data?.dataSets[highlight.dataSetIndex] {
-            let sliceIndex: Int = dataSet.entryIndex(entry: entry)
+            let sliceIndex = dataSet.entryIndex(entry: entry)
             let date = self.dateArray[sliceIndex]
             let weight = self.weightArray[sliceIndex]
             let editDeleteWeightViewController = (self.storyboard?.instantiateViewController(withIdentifier: "EditDeleteWeight")) as! editDeleteWeightViewController

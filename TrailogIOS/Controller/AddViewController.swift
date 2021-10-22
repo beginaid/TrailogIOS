@@ -13,9 +13,9 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         view.backgroundColor = Const.rgbLightBlack
         tableView.register(UINib(nibName: Const.identifierTableViewCell, bundle: nil), forCellReuseIdentifier: Const.identifierCell)
-        cellDataArray.append(CellData(imagePath: Const.addWeightEN, eventName: Const.addWeightJP))
-        cellDataArray.append(CellData(imagePath: Const.addTrainingEN, eventName: Const.addTrainingJP))
-        cellDataArray.append(CellData(imagePath: Const.addWorkoutEN, eventName: Const.addWorkoutJP))
+        cellDataArray.append(CellData(imagePath: Const.weightEN, eventName: Const.addWeightJP))
+        cellDataArray.append(CellData(imagePath: Const.trainingEN, eventName: Const.addTrainingJP))
+        cellDataArray.append(CellData(imagePath: Const.workoutEN, eventName: Const.addWorkoutJP))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

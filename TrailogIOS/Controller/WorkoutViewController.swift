@@ -37,7 +37,7 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 for document in querySnapshot!.documents {
                     let date = Utils.getDateFromYearMonthDay(document.documentID)
                     self.dateArray.append(date)
-                    self.contentsMap[date] = (document.data()["contents"] as! [String : [String : String]])
+                    self.contentsMap[date] = (document.data()[Const.firebaseCollectionNameContents] as! [String : [String : String]])
                 }
                 if self.dateArray.count > 0 {
                     self.tableView.isHidden = false

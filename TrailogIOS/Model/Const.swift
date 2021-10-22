@@ -16,11 +16,11 @@ struct Const {
     static let successAddWorkout = "有酸素編集完了"
     static let successDelete = "削除完了"
     
-    static let addWeightEN = "weight"
+    static let weightEN = "weight"
     static let addWeightJP = "体重追加"
-    static let addTrainingEN = "training"
+    static let trainingEN = "training"
     static let addTrainingJP = "筋トレ追加"
-    static let addWorkoutEN = "workout"
+    static let workoutEN = "workout"
     static let addWorkoutJP = "有酸素追加"
     
     static let firebaseCollectionNameWeight = "weights"
