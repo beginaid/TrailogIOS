@@ -121,10 +121,10 @@
 		B35CB6DC272255680006C139 = {
 			isa = PBXGroup;
 			children = (
-				B35CB6E7272255680006C139 /* TrailogIOS */,
-				B35CB6E6272255680006C139 /* Products */,
-				161460646AF4C9A295A17B2F /* Pods */,
 				19DEF38F334657D2509C4790 /* Frameworks */,
+				161460646AF4C9A295A17B2F /* Pods */,
+				B35CB6E6272255680006C139 /* Products */,
+				B35CB6E7272255680006C139 /* TrailogIOS */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,17 +139,17 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
+				B35CB6F6272255690006C139 /* Info.plist */,
 				B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */,
 				B35CB73F27225EFC0006C139 /* Main.storyboard */,
+				B35CB6E8272255680006C139 /* AppDelegate.swift */,
+				B35CB6EA272255680006C139 /* SceneDelegate.swift */,
 				B35CB73C27225E760006C139 /* Utils.swift */,
+				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
 				B35CB71927225E4B0006C139 /* Controller */,
 				B35CB70E27225E1F0006C139 /* Model */,
 				B35CB70027225DE40006C139 /* SemiModal */,
-				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
-				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
-				B35CB6E8272255680006C139 /* AppDelegate.swift */,
-				B35CB6EA272255680006C139 /* SceneDelegate.swift */,
-				B35CB6F6272255690006C139 /* Info.plist */,
 			);
 			path = TrailogIOS;
 			sourceTree = "<group>";
@@ -485,7 +485,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codaid.TrailogIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cod-aid.TrailogIOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -505,7 +505,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codaid.TrailogIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cod-aid.TrailogIOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
