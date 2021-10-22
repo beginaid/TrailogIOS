@@ -9,7 +9,8 @@ struct Const {
     static let errorDefault = "エラーが起きました\nしばらくしてから再度お試しください"
     
     static let identifierMain = "Main"
-
+    static let identifierLogin = "Login"
+    
     static let dropListTraining = [
         "ベンチプレス",
         "スミスマシン",

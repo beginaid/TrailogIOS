@@ -12,9 +12,6 @@ class SettingViewController: UIViewController {
     
     @IBAction func handleLogoutButton(_ sender: Any) {
         try! Auth.auth().signOut()
-        let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Login")
-        let navViewController = UINavigationController(rootViewController: loginViewController!)
-        let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
-        keywindow!.rootViewController = navViewController
+        Utils.updateRootWindow(self.storyboard!, Const.identifierLogin)
     }
 }
