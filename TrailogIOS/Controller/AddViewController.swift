@@ -4,29 +4,18 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     
     @IBOutlet weak var tableView: UITableView!
-    
     var cellDataArray: [CellData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "LightBlack")
-        
         tableView.delegate = self
         tableView.dataSource = self
-        let nib = UINib(nibName: "TableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "Cell")
         
-        let cellDataAddWeight = CellData(imagePath: "weight", eventName: "体重追加")
-        let cellDataAddTraining = CellData(imagePath: "training", eventName: "筋トレ追加")
-        let cellDataAddWorkout = CellData(imagePath: "workout", eventName: "有酸素追加")
-        cellDataArray.append(cellDataAddWeight)
-        cellDataArray.append(cellDataAddTraining)
-        cellDataArray.append(cellDataAddWorkout)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        view.backgroundColor = UIColor(named: "LightBlack")
+        view.backgroundColor = Const.rgbLightBlack
+        tableView.register(UINib(nibName: Const.identifierTableViewCell, bundle: nil), forCellReuseIdentifier: Const.identifierCell)
+        cellDataArray.append(CellData(imagePath: Const.addWeightEN, eventName: Const.addWeightJP))
+        cellDataArray.append(CellData(imagePath: Const.addTrainingEN, eventName: Const.addTrainingJP))
+        cellDataArray.append(CellData(imagePath: Const.addWorkoutEN, eventName: Const.addWorkoutJP))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,28 +23,20 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
-        cell.backgroundColor = UIColor(named: "LightBlack")
-        cell.setCellData(cellDataArray[indexPath.row])
-        return cell
+        return Utils.createTableViewCell(tableView, indexPath, cellDataArray[indexPath.row])
     }
     
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return CGFloat(Const.heightAddMenuCell)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "AddWeight")
-            self.present(targetViewController, animated: true, completion: nil)
+            Utils.present(Const.identifierAddWeight, self)
         } else if indexPath.row == 1{
-            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "AddTraining")
-            self.present(targetViewController, animated: true, completion: nil)
+            Utils.present(Const.identifierAddTraining, self)
         } else if indexPath.row == 2{
-            let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "AddWorkout")
-            self.present(targetViewController, animated: true, completion: nil)
+            Utils.present(Const.identifierAddWorkout, self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

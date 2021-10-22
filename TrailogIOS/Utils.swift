@@ -11,6 +11,17 @@ class Utils: NSObject {
         SVProgressHUD.showSuccess(withStatus: displayWords)
     }
     
+    static func createTableViewCell(_ tableView: UITableView, _ indexPath: IndexPath, _ data: CellData) -> TableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Const.identifierCell, for: indexPath) as! TableViewCell
+        cell.setCellData(data)
+        return cell
+    }
+    
+    static func present(_ identifier: String, _ viewController: UIViewController){
+        let targetViewController = viewController.storyboard!.instantiateViewController(withIdentifier: identifier)
+        viewController.present(targetViewController, animated: true, completion: nil)
+    }
+    
     static func updateRootWindow(_ storyboard: UIStoryboard, _ identifier: String) {
         let mainViewController = storyboard.instantiateViewController(withIdentifier: identifier)
         let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
