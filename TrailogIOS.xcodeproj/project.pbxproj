@@ -21,6 +21,11 @@
 		B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */; };
 		B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */; };
 		B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */; };
+		B35CB71427225E1F0006C139 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70F27225E1F0006C139 /* Weight.swift */; };
+		B35CB71527225E1F0006C139 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71027225E1F0006C139 /* CellData.swift */; };
+		B35CB71627225E1F0006C139 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71127225E1F0006C139 /* DoneTextField.swift */; };
+		B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71227225E1F0006C139 /* StackViewCell.swift */; };
+		B35CB71827225E1F0006C139 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71327225E1F0006C139 /* Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,11 @@
 		B35CB70527225DE40006C139 /* SemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SemiModal.h; sourceTree = "<group>"; };
 		B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
 		B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalIndicatorView.swift; sourceTree = "<group>"; };
+		B35CB70F27225E1F0006C139 /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		B35CB71027225E1F0006C139 /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		B35CB71127225E1F0006C139 /* DoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
+		B35CB71227225E1F0006C139 /* StackViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewCell.swift; sourceTree = "<group>"; };
+		B35CB71327225E1F0006C139 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +105,7 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB70E27225E1F0006C139 /* Model */,
 				B35CB70027225DE40006C139 /* SemiModal */,
 				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
 				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
@@ -120,6 +131,18 @@
 				B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */,
 			);
 			path = SemiModal;
+			sourceTree = "<group>";
+		};
+		B35CB70E27225E1F0006C139 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B35CB70F27225E1F0006C139 /* Weight.swift */,
+				B35CB71027225E1F0006C139 /* CellData.swift */,
+				B35CB71127225E1F0006C139 /* DoneTextField.swift */,
+				B35CB71227225E1F0006C139 /* StackViewCell.swift */,
+				B35CB71327225E1F0006C139 /* Const.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,12 +263,17 @@
 				B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */,
 				B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */,
 				B35CB6ED272255680006C139 /* ViewController.swift in Sources */,
+				B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */,
 				B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */,
 				B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */,
+				B35CB71427225E1F0006C139 /* Weight.swift in Sources */,
 				B35CB70A27225DE40006C139 /* SemiModalDismissAnimatedTransition.swift in Sources */,
 				B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */,
 				B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */,
+				B35CB71627225E1F0006C139 /* DoneTextField.swift in Sources */,
 				B35CB70927225DE40006C139 /* SemiModalPresenter.swift in Sources */,
+				B35CB71527225E1F0006C139 /* CellData.swift in Sources */,
+				B35CB71827225E1F0006C139 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
