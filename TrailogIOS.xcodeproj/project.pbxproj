@@ -43,6 +43,7 @@
 		B35CB73927225E4B0006C139 /* AddTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */; };
 		B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72927225E4B0006C139 /* AddWeightViewController.swift */; };
 		B35CB73B27225E4B0006C139 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72A27225E4B0006C139 /* TabBarController.swift */; };
+		B35CB73D27225E760006C139 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB73C27225E760006C139 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrainingViewController.swift; sourceTree = "<group>"; };
 		B35CB72927225E4B0006C139 /* AddWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
 		B35CB72A27225E4B0006C139 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B35CB73C27225E760006C139 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB73C27225E760006C139 /* Utils.swift */,
 				B35CB71927225E4B0006C139 /* Controller */,
 				B35CB70E27225E1F0006C139 /* Model */,
 				B35CB70027225DE40006C139 /* SemiModal */,
@@ -326,6 +329,7 @@
 				B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */,
 				B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */,
 				B35CB73127225E4B0006C139 /* TrainingViewController.swift in Sources */,
+				B35CB73D27225E760006C139 /* Utils.swift in Sources */,
 				B35CB73227225E4B0006C139 /* EditTrainingViewController.swift in Sources */,
 				B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */,
 				B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */,
