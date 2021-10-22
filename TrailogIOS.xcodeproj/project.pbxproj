@@ -10,7 +10,6 @@
 		A9064981E479FFC786335302 /* Pods_TrailogIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */; };
 		B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6E8272255680006C139 /* AppDelegate.swift */; };
 		B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EA272255680006C139 /* SceneDelegate.swift */; };
-		B35CB6ED272255680006C139 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EC272255680006C139 /* ViewController.swift */; };
 		B35CB6F0272255680006C139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6EE272255680006C139 /* Main.storyboard */; };
 		B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F3272255690006C139 /* LaunchScreen.storyboard */; };
 		B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */; };
@@ -51,7 +50,6 @@
 		B35CB6E5272255680006C139 /* TrailogIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailogIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35CB6E8272255680006C139 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B35CB6EA272255680006C139 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B35CB6EC272255680006C139 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B35CB6EF272255680006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B35CB6F4272255690006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B35CB6F6272255690006C139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
 				B35CB6E8272255680006C139 /* AppDelegate.swift */,
 				B35CB6EA272255680006C139 /* SceneDelegate.swift */,
-				B35CB6EC272255680006C139 /* ViewController.swift */,
 				B35CB6EE272255680006C139 /* Main.storyboard */,
 				B35CB6F3272255690006C139 /* LaunchScreen.storyboard */,
 				B35CB6F6272255690006C139 /* Info.plist */,
@@ -333,7 +330,6 @@
 				B35CB73227225E4B0006C139 /* EditTrainingViewController.swift in Sources */,
 				B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */,
 				B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */,
-				B35CB6ED272255680006C139 /* ViewController.swift in Sources */,
 				B35CB72C27225E4B0006C139 /* SettingViewController.swift in Sources */,
 				B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */,
 				B35CB73927225E4B0006C139 /* AddTrainingViewController.swift in Sources */,
