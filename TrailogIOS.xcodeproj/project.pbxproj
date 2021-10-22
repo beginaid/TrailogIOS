@@ -10,8 +10,6 @@
 		A9064981E479FFC786335302 /* Pods_TrailogIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */; };
 		B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6E8272255680006C139 /* AppDelegate.swift */; };
 		B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EA272255680006C139 /* SceneDelegate.swift */; };
-		B35CB6F0272255680006C139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6EE272255680006C139 /* Main.storyboard */; };
-		B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F3272255690006C139 /* LaunchScreen.storyboard */; };
 		B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */; };
 		B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FE27225DC20006C139 /* Assets.xcassets */; };
 		B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */; };
@@ -43,6 +41,8 @@
 		B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72927225E4B0006C139 /* AddWeightViewController.swift */; };
 		B35CB73B27225E4B0006C139 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72A27225E4B0006C139 /* TabBarController.swift */; };
 		B35CB73D27225E760006C139 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB73C27225E760006C139 /* Utils.swift */; };
+		B35CB74027225EFC0006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */; };
+		B35CB74127225EFC0006C139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB73F27225EFC0006C139 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +50,6 @@
 		B35CB6E5272255680006C139 /* TrailogIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailogIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35CB6E8272255680006C139 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B35CB6EA272255680006C139 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B35CB6EF272255680006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B35CB6F4272255690006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B35CB6F6272255690006C139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B35CB6FE27225DC20006C139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +83,8 @@
 		B35CB72927225E4B0006C139 /* AddWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
 		B35CB72A27225E4B0006C139 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B35CB73C27225E760006C139 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B35CB73F27225EFC0006C139 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +139,8 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */,
+				B35CB73F27225EFC0006C139 /* Main.storyboard */,
 				B35CB73C27225E760006C139 /* Utils.swift */,
 				B35CB71927225E4B0006C139 /* Controller */,
 				B35CB70E27225E1F0006C139 /* Model */,
@@ -147,8 +149,6 @@
 				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
 				B35CB6E8272255680006C139 /* AppDelegate.swift */,
 				B35CB6EA272255680006C139 /* SceneDelegate.swift */,
-				B35CB6EE272255680006C139 /* Main.storyboard */,
-				B35CB6F3272255690006C139 /* LaunchScreen.storyboard */,
 				B35CB6F6272255690006C139 /* Info.plist */,
 			);
 			path = TrailogIOS;
@@ -263,12 +263,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */,
 				B35CB73527225E4B0006C139 /* TableViewCell.xib in Resources */,
 				B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */,
 				B35CB73427225E4B0006C139 /* AddViewController.xib in Resources */,
+				B35CB74127225EFC0006C139 /* Main.storyboard in Resources */,
+				B35CB74027225EFC0006C139 /* LaunchScreen.storyboard in Resources */,
 				B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */,
-				B35CB6F0272255680006C139 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,25 +354,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B35CB6EE272255680006C139 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B35CB6EF272255680006C139 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B35CB6F3272255690006C139 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B35CB6F4272255690006C139 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B35CB6F7272255690006C139 /* Debug */ = {
