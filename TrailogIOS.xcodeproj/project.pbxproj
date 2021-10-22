@@ -26,6 +26,23 @@
 		B35CB71627225E1F0006C139 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71127225E1F0006C139 /* DoneTextField.swift */; };
 		B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71227225E1F0006C139 /* StackViewCell.swift */; };
 		B35CB71827225E1F0006C139 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71327225E1F0006C139 /* Const.swift */; };
+		B35CB72B27225E4B0006C139 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71A27225E4B0006C139 /* SignupViewController.swift */; };
+		B35CB72C27225E4B0006C139 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71B27225E4B0006C139 /* SettingViewController.swift */; };
+		B35CB72D27225E4B0006C139 /* editDeleteWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71C27225E4B0006C139 /* editDeleteWeightViewController.swift */; };
+		B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71D27225E4B0006C139 /* AddViewController.swift */; };
+		B35CB72F27225E4B0006C139 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */; };
+		B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71F27225E4B0006C139 /* WeightViewController.swift */; };
+		B35CB73127225E4B0006C139 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72027225E4B0006C139 /* TrainingViewController.swift */; };
+		B35CB73227225E4B0006C139 /* EditTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72127225E4B0006C139 /* EditTrainingViewController.swift */; };
+		B35CB73327225E4B0006C139 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72227225E4B0006C139 /* TableViewCell.swift */; };
+		B35CB73427225E4B0006C139 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35CB72327225E4B0006C139 /* AddViewController.xib */; };
+		B35CB73527225E4B0006C139 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35CB72427225E4B0006C139 /* TableViewCell.xib */; };
+		B35CB73627225E4B0006C139 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72527225E4B0006C139 /* AddWorkoutViewController.swift */; };
+		B35CB73727225E4B0006C139 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72627225E4B0006C139 /* EditWorkoutViewController.swift */; };
+		B35CB73827225E4B0006C139 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72727225E4B0006C139 /* LoginViewController.swift */; };
+		B35CB73927225E4B0006C139 /* AddTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */; };
+		B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72927225E4B0006C139 /* AddWeightViewController.swift */; };
+		B35CB73B27225E4B0006C139 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72A27225E4B0006C139 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +68,23 @@
 		B35CB71127225E1F0006C139 /* DoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
 		B35CB71227225E1F0006C139 /* StackViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewCell.swift; sourceTree = "<group>"; };
 		B35CB71327225E1F0006C139 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		B35CB71A27225E4B0006C139 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		B35CB71B27225E4B0006C139 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B35CB71C27225E4B0006C139 /* editDeleteWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editDeleteWeightViewController.swift; sourceTree = "<group>"; };
+		B35CB71D27225E4B0006C139 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		B35CB71F27225E4B0006C139 /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
+		B35CB72027225E4B0006C139 /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		B35CB72127225E4B0006C139 /* EditTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTrainingViewController.swift; sourceTree = "<group>"; };
+		B35CB72227225E4B0006C139 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		B35CB72327225E4B0006C139 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		B35CB72427225E4B0006C139 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		B35CB72527225E4B0006C139 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
+		B35CB72627225E4B0006C139 /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
+		B35CB72727225E4B0006C139 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrainingViewController.swift; sourceTree = "<group>"; };
+		B35CB72927225E4B0006C139 /* AddWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
+		B35CB72A27225E4B0006C139 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +139,7 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB71927225E4B0006C139 /* Controller */,
 				B35CB70E27225E1F0006C139 /* Model */,
 				B35CB70027225DE40006C139 /* SemiModal */,
 				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
@@ -143,6 +178,30 @@
 				B35CB71327225E1F0006C139 /* Const.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B35CB71927225E4B0006C139 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B35CB71A27225E4B0006C139 /* SignupViewController.swift */,
+				B35CB71B27225E4B0006C139 /* SettingViewController.swift */,
+				B35CB71C27225E4B0006C139 /* editDeleteWeightViewController.swift */,
+				B35CB71D27225E4B0006C139 /* AddViewController.swift */,
+				B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */,
+				B35CB71F27225E4B0006C139 /* WeightViewController.swift */,
+				B35CB72027225E4B0006C139 /* TrainingViewController.swift */,
+				B35CB72127225E4B0006C139 /* EditTrainingViewController.swift */,
+				B35CB72227225E4B0006C139 /* TableViewCell.swift */,
+				B35CB72327225E4B0006C139 /* AddViewController.xib */,
+				B35CB72427225E4B0006C139 /* TableViewCell.xib */,
+				B35CB72527225E4B0006C139 /* AddWorkoutViewController.swift */,
+				B35CB72627225E4B0006C139 /* EditWorkoutViewController.swift */,
+				B35CB72727225E4B0006C139 /* LoginViewController.swift */,
+				B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */,
+				B35CB72927225E4B0006C139 /* AddWeightViewController.swift */,
+				B35CB72A27225E4B0006C139 /* TabBarController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */,
+				B35CB73527225E4B0006C139 /* TableViewCell.xib in Resources */,
 				B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */,
+				B35CB73427225E4B0006C139 /* AddViewController.xib in Resources */,
 				B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */,
 				B35CB6F0272255680006C139 /* Main.storyboard in Resources */,
 			);
@@ -260,20 +321,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */,
+				B35CB72D27225E4B0006C139 /* editDeleteWeightViewController.swift in Sources */,
 				B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */,
+				B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */,
+				B35CB73127225E4B0006C139 /* TrainingViewController.swift in Sources */,
+				B35CB73227225E4B0006C139 /* EditTrainingViewController.swift in Sources */,
 				B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */,
+				B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */,
 				B35CB6ED272255680006C139 /* ViewController.swift in Sources */,
+				B35CB72C27225E4B0006C139 /* SettingViewController.swift in Sources */,
 				B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */,
+				B35CB73927225E4B0006C139 /* AddTrainingViewController.swift in Sources */,
 				B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */,
 				B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */,
 				B35CB71427225E1F0006C139 /* Weight.swift in Sources */,
+				B35CB73727225E4B0006C139 /* EditWorkoutViewController.swift in Sources */,
 				B35CB70A27225DE40006C139 /* SemiModalDismissAnimatedTransition.swift in Sources */,
 				B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */,
 				B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */,
 				B35CB71627225E1F0006C139 /* DoneTextField.swift in Sources */,
+				B35CB72F27225E4B0006C139 /* WorkoutViewController.swift in Sources */,
 				B35CB70927225DE40006C139 /* SemiModalPresenter.swift in Sources */,
+				B35CB72B27225E4B0006C139 /* SignupViewController.swift in Sources */,
+				B35CB73B27225E4B0006C139 /* TabBarController.swift in Sources */,
+				B35CB73627225E4B0006C139 /* AddWorkoutViewController.swift in Sources */,
 				B35CB71527225E1F0006C139 /* CellData.swift in Sources */,
 				B35CB71827225E1F0006C139 /* Const.swift in Sources */,
+				B35CB73827225E4B0006C139 /* LoginViewController.swift in Sources */,
+				B35CB73327225E4B0006C139 /* TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
