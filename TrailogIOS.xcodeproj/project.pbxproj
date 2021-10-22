@@ -15,6 +15,12 @@
 		B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F3272255690006C139 /* LaunchScreen.storyboard */; };
 		B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */; };
 		B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FE27225DC20006C139 /* Assets.xcassets */; };
+		B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */; };
+		B35CB70927225DE40006C139 /* SemiModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70227225DE40006C139 /* SemiModalPresenter.swift */; };
+		B35CB70A27225DE40006C139 /* SemiModalDismissAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70327225DE40006C139 /* SemiModalDismissAnimatedTransition.swift */; };
+		B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */; };
+		B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */; };
+		B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,13 @@
 		B35CB6F6272255690006C139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B35CB6FE27225DC20006C139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalDismissInteractiveTransition.swift; sourceTree = "<group>"; };
+		B35CB70227225DE40006C139 /* SemiModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalPresenter.swift; sourceTree = "<group>"; };
+		B35CB70327225DE40006C139 /* SemiModalDismissAnimatedTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalDismissAnimatedTransition.swift; sourceTree = "<group>"; };
+		B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalOverlayView.swift; sourceTree = "<group>"; };
+		B35CB70527225DE40006C139 /* SemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SemiModal.h; sourceTree = "<group>"; };
+		B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
+		B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalIndicatorView.swift; sourceTree = "<group>"; };
 		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +95,7 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB70027225DE40006C139 /* SemiModal */,
 				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
 				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
 				B35CB6E8272255680006C139 /* AppDelegate.swift */,
@@ -92,6 +106,20 @@
 				B35CB6F6272255690006C139 /* Info.plist */,
 			);
 			path = TrailogIOS;
+			sourceTree = "<group>";
+		};
+		B35CB70027225DE40006C139 /* SemiModal */ = {
+			isa = PBXGroup;
+			children = (
+				B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */,
+				B35CB70227225DE40006C139 /* SemiModalPresenter.swift */,
+				B35CB70327225DE40006C139 /* SemiModalDismissAnimatedTransition.swift */,
+				B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */,
+				B35CB70527225DE40006C139 /* SemiModal.h */,
+				B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */,
+				B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */,
+			);
+			path = SemiModal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,9 +237,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */,
+				B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */,
 				B35CB6ED272255680006C139 /* ViewController.swift in Sources */,
 				B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */,
+				B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */,
+				B35CB70A27225DE40006C139 /* SemiModalDismissAnimatedTransition.swift in Sources */,
+				B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */,
 				B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */,
+				B35CB70927225DE40006C139 /* SemiModalPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
