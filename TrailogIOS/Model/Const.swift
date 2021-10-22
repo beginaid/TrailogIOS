@@ -26,6 +26,7 @@ struct Const {
     static let firebaseCollectionNameWeight = "weights"
     static let firebaseCollectionNameTraining = "trainings"
     static let firebaseCollectionNameWorkout = "workouts"
+    static let firebaseCollectionNameContents = "contentss"
     
     static let identifierMain = "Main"
     static let identifierLogin = "Login"
@@ -35,6 +36,7 @@ struct Const {
     static let identifierAddTraining = "AddTraining"
     static let identifierAddWorkout = "AddWorkout"
     static let identifierEditWorkout = "EditWorkout"
+    static let identifierEditTraining = "EditTraining"
     static let identifierTrainingCell = "TrainingCell"
     static let identifierWorkoutCell = "WorkoutCell"
     

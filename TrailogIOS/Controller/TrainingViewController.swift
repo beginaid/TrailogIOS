@@ -37,7 +37,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UITableVi
                 for document in querySnapshot!.documents {
                     let date = Utils.getDateFromYearMonthDay(document.documentID)
                     self.dateArray.append(date)
-                    self.contentsMap[date] = (document.data()["contents"] as! [String : [String : String]])
+                    self.contentsMap[date] = (document.data()[Const.firebaseCollectionNameContents] as! [String : [String : String]])
                 }
                 if self.dateArray.count > 0 {
                     self.tableView.isHidden = false
@@ -58,7 +58,7 @@ class TrainingViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "EditTraining") as! EditTrainingViewController
+        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: Const.identifierEditTraining) as! EditTrainingViewController
         targetViewController.date = self.dateArray[indexPath.row]
         targetViewController.contentsMap = self.contentsMap[self.dateArray[indexPath.row]]!
         self.present(targetViewController, animated: true, completion: nil)
