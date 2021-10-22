@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,9 @@
 		B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EA272255680006C139 /* SceneDelegate.swift */; };
 		B35CB6ED272255680006C139 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EC272255680006C139 /* ViewController.swift */; };
 		B35CB6F0272255680006C139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6EE272255680006C139 /* Main.storyboard */; };
-		B35CB6F2272255690006C139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F1272255690006C139 /* Assets.xcassets */; };
 		B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F3272255690006C139 /* LaunchScreen.storyboard */; };
+		B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */; };
+		B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FE27225DC20006C139 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +24,10 @@
 		B35CB6EA272255680006C139 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B35CB6EC272255680006C139 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B35CB6EF272255680006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B35CB6F1272255690006C139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B35CB6F4272255690006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B35CB6F6272255690006C139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B35CB6FE27225DC20006C139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +50,6 @@
 				A61118C0918EF44051BDC826 /* Pods-TrailogIOS.debug.xcconfig */,
 				E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,11 +82,12 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
+				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
 				B35CB6E8272255680006C139 /* AppDelegate.swift */,
 				B35CB6EA272255680006C139 /* SceneDelegate.swift */,
 				B35CB6EC272255680006C139 /* ViewController.swift */,
 				B35CB6EE272255680006C139 /* Main.storyboard */,
-				B35CB6F1272255690006C139 /* Assets.xcassets */,
 				B35CB6F3272255690006C139 /* LaunchScreen.storyboard */,
 				B35CB6F6272255690006C139 /* Info.plist */,
 			);
@@ -152,7 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */,
-				B35CB6F2272255690006C139 /* Assets.xcassets in Resources */,
+				B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */,
+				B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */,
 				B35CB6F0272255680006C139 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
