@@ -6,6 +6,10 @@ class Utils: NSObject {
     static func showError(_ displayWords: String) {
         SVProgressHUD.showError(withStatus: displayWords)
     }
+
+    static func showSuccess(_ displayWords: String) {
+        SVProgressHUD.showSuccess(withStatus: displayWords)
+    }
     
     static func updateRootWindow(_ storyboard: UIStoryboard, _ identifier: String) {
         let mainViewController = storyboard.instantiateViewController(withIdentifier: identifier)
@@ -36,8 +40,13 @@ class Utils: NSObject {
         return dateFormatter.string(from: datePicker.date)
     }
     
-    static func setButtonStyle(_ button: UIButton) {
-        button.backgroundColor = UIColor(named: "AccentColor")
+    static func setModalView(_ modalView: UIView) {
+        modalView.backgroundColor = .white
+        modalView.layer.cornerRadius = 15
+    }
+    
+    static func setButtonStyle(_ button: UIButton, _ color: String) {
+        button.backgroundColor = UIColor(named: color)
         button.layer.cornerRadius = 3.0
     }
     

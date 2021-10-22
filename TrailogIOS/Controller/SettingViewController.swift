@@ -7,7 +7,7 @@ class SettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setButtonStyle(logoutButton)
+        Utils.setButtonStyle(logoutButton, Const.colorAccent)
     }
     
     @IBAction func handleLogoutButton(_ sender: Any) {

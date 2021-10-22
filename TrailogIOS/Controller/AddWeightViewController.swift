@@ -12,7 +12,7 @@ class AddWeightViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         weightTextField.keyboardType = UIKeyboardType.decimalPad
-        Utils.setButtonStyle(registerButton)
+        Utils.setButtonStyle(registerButton, Const.colorAccent)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }

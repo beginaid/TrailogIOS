@@ -11,7 +11,7 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setButtonStyle(signupButton)
+        Utils.setButtonStyle(signupButton, Const.colorAccent)
     }
     
     @IBAction func handleSignupButton(_ sender: Any) {

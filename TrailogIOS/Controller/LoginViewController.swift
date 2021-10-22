@@ -11,7 +11,7 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setButtonStyle(loginButton)
+        Utils.setButtonStyle(loginButton, Const.colorAccent)
         signupTextView.delegate = self
         Utils.setHyperTextStyle(signupTextView)
     }

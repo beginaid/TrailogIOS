@@ -15,14 +15,10 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
-        modalVIew.backgroundColor = .white
-        modalVIew.layer.cornerRadius = 15
-        
-        editButton.backgroundColor = UIColor(named: "Black")
-        editButton.layer.cornerRadius = 3.0
-        deleteButton.backgroundColor = UIColor(named: "AccentColor")
-        deleteButton.layer.cornerRadius = 3.0
+        view.backgroundColor = Const.rgbLightBlack
+        Utils.setModalView(modalVIew)
+        Utils.setButtonStyle(editButton, Const.colorBlack)
+        Utils.setButtonStyle(deleteButton, Const.colorAccent)
         dateLabel.text = date
         dateLabel.textAlignment = .center
         weightTextField.text = weight
@@ -37,7 +33,7 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -48,11 +44,11 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
         SVProgressHUD.show()
         if let user = Auth.auth().currentUser {
             let uid = user.uid
-            let date = "2021-" + date.replacingOccurrences(of: "/", with: "-")
+            let date = "\(Const.year)-\(date.replacingOccurrences(of: "/", with: "-"))"
             if let weightText = weightTextField.text {
                 if weightText.isEmpty {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "体重を入力して下さい")
+                    Utils.showError(Const.errorWeightNotFilled)
                     return
                 }
                 let weightDic = [
@@ -62,11 +58,11 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
                 db.collection("weights_\(uid)").document(date).setData(weightDic) { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showError(withStatus: "エラーが発生しました")
+                        Utils.showError(Const.errorDefault)
                         print(err)
                     } else {
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showSuccess(withStatus: "体重編集完了")
+                        Utils.showSuccess(Const.successAddWeight)
                         self.presentingViewController?.dismiss(animated: true, completion: nil)
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -83,15 +79,15 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
                                         SVProgressHUD.show()
                                         if let user = Auth.auth().currentUser {
                                             let uid = user.uid
-                                            let date = "2021-" + self.date.replacingOccurrences(of: "/", with: "-")
+                                            let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
                                             self.db.collection("weights_\(uid)").document(date).delete() { err in
                                                 if let err = err {
                                                     SVProgressHUD.dismiss()
-                                                    SVProgressHUD.showError(withStatus: "エラーが発生しました")
+                                                    Utils.showError(Const.errorDefault)
                                                     print(err)
                                                 } else {
                                                     SVProgressHUD.dismiss()
-                                                    SVProgressHUD.showSuccess(withStatus: "体重削除完了")
+                                                    Utils.showSuccess(Const.successDeleteWeight)
                                                     self.dismiss(animated: true, completion: nil)
                                                 }
                                             }
@@ -100,18 +96,14 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
         self.present(dialog, animated: true, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     @objc func tapped(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
             self.dismiss(animated: true, completion: nil)
         }
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if touch.view == self.view {
-            return true
-        }
-        return false
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -129,15 +121,6 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        self.view.endEditing(true)
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
 }
