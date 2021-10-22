@@ -1,7 +1,10 @@
 import UIKit
 import SVProgressHUD
+import Firebase
 
 class Utils: NSObject {
+    
+    static let db = Firestore.firestore()
     
     static func showError(_ displayWords: String) {
         SVProgressHUD.showError(withStatus: displayWords)
@@ -9,6 +12,43 @@ class Utils: NSObject {
 
     static func showSuccess(_ displayWords: String) {
         SVProgressHUD.showSuccess(withStatus: displayWords)
+    }
+    
+    static func createAlertConfiguration(_ viewController: UIViewController, _ indexPath: IndexPath, _ date: String, _ event: String) -> UISwipeActionsConfiguration {
+        let action = UIContextualAction(style: .destructive,
+                                        title: "削除") { (action, view, completionHandler) in
+            self.showAlert(viewController, indexPath, date, event)
+            completionHandler(true)
+        }
+        action.backgroundColor = UIColor(named: "AccentColor")
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        return configuration
+    }
+
+    static func showAlert(_ viewController: UIViewController, _ indexPath: IndexPath, _ date: String, _ event: String) {
+        let dialog = UIAlertController(title: "確認",
+                                       message: "\(date)のデータを\n削除しますか？",
+                                       preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "削除", style: .default, handler: { (_) in
+            SVProgressHUD.show()
+            if let user = Auth.auth().currentUser {
+                let uid = user.uid
+                let date = Utils.getYearMonthDayFromDate(date)
+                self.db.collection("\(event)_\(uid)").document(date).delete() { err in
+                    if let err = err {
+                        SVProgressHUD.dismiss()
+                        Utils.showError(Const.errorDefault)
+                        print(err)
+                    } else {
+                        SVProgressHUD.dismiss()
+                        Utils.showSuccess(Const.successDelete)
+                        viewController.dismiss(animated: true, completion: nil)
+                    }
+                }
+            }
+        }))
+        dialog.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        viewController.present(dialog, animated: true, completion: nil)
     }
     
     static func createTableViewCell(_ tableView: UITableView, _ indexPath: IndexPath, _ data: CellData) -> TableViewCell {
@@ -28,8 +68,8 @@ class Utils: NSObject {
         keywindow!.rootViewController = mainViewController
     }
     
-    static func getYearMonthDayFromDate(_ date: String, _ year: String) -> String {
-        return "\(year)-\(date.replacingOccurrences(of: "/", with: "-"))"
+    static func getYearMonthDayFromDate(_ date: String) -> String {
+        return "\(Const.year)-\(date.replacingOccurrences(of: "/", with: "-"))"
     }
     
     static func getDateFromYearMonthDay(_ yearMonthDay: String) -> String {
@@ -81,26 +121,16 @@ class Utils: NSObject {
         textView.attributedText = attributedString
     }
     
-    static func setTrainingCell(_ cell: UITableViewCell, _ index: Int, _ dateArray: [String], _ eventArray: [String], _ weightArray: [String], _ repsArray: [String]) {
-        let dateLabel = UILabel()
-        let stackView: UIStackView = UIStackView()
-        cell.contentView.addSubview(dateLabel)
-        cell.contentView.addSubview(stackView)
-        dateLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10.0).isActive = true
-        dateLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10.0).isActive = true
-        dateLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10.0).isActive = true
-        dateLabel.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -10.0).isActive = true
-        dateLabel.numberOfLines = 0
-        dateLabel.font = UIFont.systemFont(ofSize: 25)
-        dateLabel.text = dateArray[index]
-        
-        stackView.axis = .vertical
-        stackView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10.0).isActive = true
-        stackView.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10.0).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10.0).isActive = true
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
+    static func setTrainingCell(_ cell: UITableViewCell, _ indexPath: IndexPath, _ dateArray: [String], _ contentsMap: [String: [String: [String: String]]]) {
+        var eventArray: [String] = []
+        var weightArray: [String] = []
+        var repsArray: [String] = []
+        for event in contentsMap[dateArray[indexPath.row]]!.keys.sorted() {
+            eventArray.append(event)
+            weightArray.append(contentsMap[dateArray[indexPath.row]]![event]!["負荷"]!)
+            repsArray.append(contentsMap[dateArray[indexPath.row]]![event]!["回数"]!)
+        }
+        let stackView = createVerticalStackView(cell, dateArray[indexPath.row])
         for i in 0..<eventArray.count {
             let addStackView: UIStackView = UIStackView()
             let eventLabel = UILabel()
@@ -119,13 +149,78 @@ class Utils: NSObject {
             eventLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.5).isActive = true
             weightLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.25).isActive = true
             repsLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.25).isActive = true
-            
-            addStackView.axis = .horizontal
-            addStackView.alignment = .fill
-            addStackView.distribution = .equalSpacing
-            addStackView.translatesAutoresizingMaskIntoConstraints = false
-            addStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+            setHorizontalStackView(addStackView)
             stackView.addArrangedSubview(addStackView)
         }
+    }
+
+    static func setWorkoutCell(_ cell: UITableViewCell, _ indexPath: IndexPath, _ dateArray: [String], _ contentsMap: [String: [String: [String: String]]]) {
+        var eventArray: [String] = []
+        var minutesArray: [String] = []
+        var maxBpmArray: [String] = []
+        var avgBpmArray: [String] = []
+        for event in contentsMap[dateArray[indexPath.row]]!.keys.sorted() {
+            eventArray.append(event)
+            minutesArray.append(contentsMap[dateArray[indexPath.row]]![event]!["時間"]!)
+            maxBpmArray.append(contentsMap[dateArray[indexPath.row]]![event]!["最大心拍"]!)
+            avgBpmArray.append(contentsMap[dateArray[indexPath.row]]![event]!["平均心拍"]!)
+        }
+        let stackView = createVerticalStackView(cell, dateArray[indexPath.row])
+        for i in 0..<eventArray.count {
+            let addStackView: UIStackView = UIStackView()
+            let eventLabel = UILabel()
+            let minutesLabel = UILabel()
+            let maxBpmLabel = UILabel()
+            let avgBpmLabel = UILabel()
+            addStackView.addArrangedSubview(eventLabel)
+            addStackView.addArrangedSubview(minutesLabel)
+            addStackView.addArrangedSubview(maxBpmLabel)
+            addStackView.addArrangedSubview(avgBpmLabel)
+            
+            eventLabel.text = "\(eventArray[i])"
+            minutesLabel.text = "\(minutesArray[i]) min"
+            maxBpmLabel.text = "Max \(maxBpmArray[i]) bpm"
+            avgBpmLabel.text = "Avg \(avgBpmArray[i]) bpm"
+            eventLabel.textAlignment = NSTextAlignment.left
+            minutesLabel.textAlignment = NSTextAlignment.right
+            maxBpmLabel.textAlignment = NSTextAlignment.right
+            avgBpmLabel.textAlignment = NSTextAlignment.right
+            eventLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.2).isActive = true
+            minutesLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.2).isActive = true
+            maxBpmLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.3).isActive = true
+            avgBpmLabel.widthAnchor.constraint(equalTo: addStackView.widthAnchor, multiplier: 0.3).isActive = true
+            setHorizontalStackView(addStackView)
+            stackView.addArrangedSubview(addStackView)
+        }
+    }
+    
+    static func setHorizontalStackView(_ addStackView: UIStackView) {
+        addStackView.axis = .horizontal
+        addStackView.alignment = .fill
+        addStackView.distribution = .equalSpacing
+        addStackView.translatesAutoresizingMaskIntoConstraints = false
+        addStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    static func createVerticalStackView(_ cell: UITableViewCell, _ date: String) -> UIStackView {
+        let dateLabel = UILabel()
+        let stackView: UIStackView = UIStackView()
+        cell.contentView.addSubview(dateLabel)
+        cell.contentView.addSubview(stackView)
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10.0).isActive = true
+        dateLabel.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10.0).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: cell.contentView.topAnchor, constant: 10.0).isActive = true
+        dateLabel.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -10.0).isActive = true
+        dateLabel.numberOfLines = 0
+        dateLabel.font = UIFont.systemFont(ofSize: 25)
+        dateLabel.text = date
+        
+        stackView.axis = .vertical
+        stackView.leftAnchor.constraint(equalTo: cell.contentView.leftAnchor, constant: 10.0).isActive = true
+        stackView.rightAnchor.constraint(equalTo: cell.contentView.rightAnchor, constant: -10.0).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor, constant: -10.0).isActive = true
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }
 }
