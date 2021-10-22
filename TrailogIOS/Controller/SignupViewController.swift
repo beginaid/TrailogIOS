@@ -19,11 +19,11 @@ class SignupViewController: UIViewController {
            let password = passwordTextField.text,
            let passwordConfirm = passwordConfirmTextField.text {
             if address.isEmpty || password.isEmpty || passwordConfirm.isEmpty {
-                SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+                Utils.showError(Const.errorFormsNotFilled)
                 return
             }
             if password != passwordConfirm {
-                SVProgressHUD.showError(withStatus: "パスワードが一致しません")
+                Utils.showError(Const.errorPasswordNotMatched)
                 return
             }
             SVProgressHUD.show()
@@ -31,21 +31,19 @@ class SignupViewController: UIViewController {
                 authResult, error in
                 if error == nil {
                     SVProgressHUD.dismiss()
-                    let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                    let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
-                    keywindow!.rootViewController = mainViewController
+                    Utils.updateRootWindow(self.storyboard!, Const.identifierMain)
                     return
                 } else {
                     if let errCode = AuthErrorCode(rawValue: error!._code) {
                         switch errCode {
                         case .invalidEmail:
-                            SVProgressHUD.showError(withStatus: "正しいメールアドレスを\n入力してください")
+                            Utils.showError(Const.errorEmailInvalid)
                         case .emailAlreadyInUse:
-                            SVProgressHUD.showError(withStatus: "このメールアドレスは\nすでに使われています")
+                            Utils.showError(Const.errorEmailAlreadyInUse)
                         case .weakPassword:
-                            SVProgressHUD.showError(withStatus: "パスワードは6文字以上で\n入力してください")
+                            Utils.showError(Const.errorPasswordTooShort)
                         default:
-                            SVProgressHUD.showError(withStatus: "エラーが起きました\nしばらくしてから再度お試しください")
+                            Utils.showError(Const.errorDefault)
                         }
                         return
                     }

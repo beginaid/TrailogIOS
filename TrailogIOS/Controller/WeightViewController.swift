@@ -33,6 +33,8 @@ class WeightViewController: UIViewController, ChartViewDelegate {
                 self.weightArray = []
                 for document in querySnapshot!.documents {
                     let date = Utils.getDateFromYearMonthDay(document.documentID)
+                    print(user.uid)
+                    print(date)
                     self.dateArray.append(date)
                     self.weightArray.append((document.data()["weight"] as! NSString).doubleValue)
                 }

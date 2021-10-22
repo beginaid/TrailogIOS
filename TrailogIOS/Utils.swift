@@ -1,6 +1,17 @@
 import UIKit
+import SVProgressHUD
 
 class Utils: NSObject {
+    
+    static func showError(_ displayWords: String) {
+        SVProgressHUD.showError(withStatus: displayWords)
+    }
+    
+    static func updateRootWindow(_ storyboard: UIStoryboard, _ identifier: String) {
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+        keywindow!.rootViewController = mainViewController
+    }
     
     static func getYearMonthDayFromDate(_ date: String, _ year: String) -> String {
         return "\(year)-\(date.replacingOccurrences(of: "/", with: "-"))"
