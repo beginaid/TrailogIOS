@@ -92,7 +92,7 @@ class AddTrainingViewController: UIViewController, UIPickerViewDelegate, UIPicke
         addPickerView.dataSource = self
         return addPickerView
     }
-
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

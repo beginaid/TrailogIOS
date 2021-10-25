@@ -56,10 +56,10 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if let user = Auth.auth().currentUser {
             let date = Utils.getDateFromDatePicker(datePicker)
             let workoutDic = [
-                Const.firebaseCollectionNameContents: contentMap,
-                Const.firebaseCollectionNameCreatedAt: FieldValue.serverTimestamp(),
+                Const.firebaseFieldContents: contentMap,
+                Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
             ] as [String : Any]
-            db.collection("\(Const.firebaseCollectionNameWorkout)_\(user.uid)").document(date).setData(workoutDic) { err in
+            db.collection("\(Const.firebaseCollectionWorkout)_\(user.uid)").document(date).setData(workoutDic) { err in
                 if let err = err {
                     SVProgressHUD.dismiss()
                     Utils.showError(Const.errorDefault)
@@ -95,7 +95,7 @@ class AddWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicker
         addPickerView.dataSource = self
         return addPickerView
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

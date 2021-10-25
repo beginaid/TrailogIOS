@@ -67,5 +67,5 @@ class AddWeightViewController: UIViewController {
             self.view.frame.origin.y = 0
         }
     }
-        
+    
 }

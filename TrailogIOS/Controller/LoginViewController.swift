@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, UITextViewDelegate {
             Auth.auth().signIn(withEmail: address, password: password) { authResult, error in
                 if error == nil {
                     SVProgressHUD.dismiss()
-                    Utils.updateRootWindow(self.storyboard, Const.identifierMain)
+                    Utils.updateRootWindow(self.storyboard!, Const.identifierMain)
                     return
                 } else {
                     if let errCode = AuthErrorCode(rawValue: error!._code) {

@@ -20,11 +20,7 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
         Utils.setButtonStyle(editButton, Const.colorBlack)
         Utils.setButtonStyle(deleteButton, Const.colorAccent)
         dateLabel.text = date
-        dateLabel.textAlignment = .center
         weightTextField.text = weight
-        weightTextField.textAlignment = .center
-        weightTextField.keyboardType = UIKeyboardType.decimalPad
-        
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(editDeleteWeightViewController.tapped(_:)))
@@ -43,7 +39,6 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
     @IBAction func handleEditButton(_ sender: Any) {
         SVProgressHUD.show()
         if let user = Auth.auth().currentUser {
-            let uid = user.uid
             let date = "\(Const.year)-\(date.replacingOccurrences(of: "/", with: "-"))"
             if let weightText = weightTextField.text {
                 if weightText.isEmpty {
@@ -52,10 +47,10 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
                     return
                 }
                 let weightDic = [
-                    "weight": weightText,
-                    "createdAd": FieldValue.serverTimestamp(),
+                    Const.firebaseFieldWeight: weightText,
+                    Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
                 ] as [String : Any]
-                db.collection("weights_\(uid)").document(date).setData(weightDic) { err in
+                db.collection("\(Const.firebaseCollectionWeight)_\(user.uid)").document(date).setData(weightDic) { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
                         Utils.showError(Const.errorDefault)
@@ -72,14 +67,14 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
     }
     
     @IBAction func handleDeleteButton(_ sender: Any) {
-        let dialog = UIAlertController(title: "確認", message: "\(date ?? "")の体重を削除しますか？", preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        dialog.addAction(UIAlertAction(title: "OK", style: .default,
+        let dialog = UIAlertController(title: Const.confirm, message: "\(date ?? "")\(Const.confirmWeight)", preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: Const.cancel, style: .cancel, handler: nil))
+        dialog.addAction(UIAlertAction(title: Const.ok, style: .default,
                                        handler: { action in
                                         SVProgressHUD.show()
                                         if let user = Auth.auth().currentUser {
                                             let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
-                                            self.db.collection("weights_\(user.uid)").document(date).delete() { err in
+                                            self.db.collection("\(Const.firebaseCollectionWeight)_\(user.uid)").document(date).delete() { err in
                                                 if let err = err {
                                                     SVProgressHUD.dismiss()
                                                     Utils.showError(Const.errorDefault)
@@ -93,10 +88,6 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
                                         }
                                        }))
         self.present(dialog, animated: true, completion: nil)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     @objc func tapped(_ sender: UITapGestureRecognizer){

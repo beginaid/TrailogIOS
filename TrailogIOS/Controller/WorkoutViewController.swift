@@ -23,7 +23,7 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let user = Auth.auth().currentUser {
-            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionNameWorkout)_\(user.uid)")
+            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionWorkout)_\(user.uid)")
             listener = docRef.addSnapshotListener() { (querySnapshot, error) in
                 if let error = error {
                     Utils.showError(Const.errorDefault)
@@ -36,7 +36,7 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
                 for document in querySnapshot!.documents {
                     let date = Utils.getDateFromYearMonthDay(document.documentID)
                     self.dateArray.append(date)
-                    self.contentsMap[date] = (document.data()[Const.firebaseCollectionNameContents] as! [String : [String : String]])
+                    self.contentsMap[date] = (document.data()[Const.firebaseFieldContents] as! [String : [String : String]])
                 }
                 if self.dateArray.count > 0 {
                     self.tableView.isHidden = false
@@ -64,7 +64,7 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return Utils.createAlertConfiguration(self, indexPath, self.dateArray[indexPath.row], Const.firebaseCollectionNameWorkout)
+        return Utils.createAlertConfiguration(self, indexPath, self.dateArray[indexPath.row], Const.firebaseCollectionWorkout)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

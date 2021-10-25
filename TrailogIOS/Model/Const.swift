@@ -21,6 +21,9 @@ struct Const {
     static let confirm = "確認"
     static let delete = "削除"
     static let cancel = "削除"
+    static let ok = "OK"
+    
+    static let confirmData = "のデータを削除しますか？"
     
     static let weightEN = "weight"
     static let addWeightJP = "体重追加"
@@ -39,7 +42,7 @@ struct Const {
     static let firebaseFieldAvgBpm = "平均心拍"
     static let firebaseFieldContents = "contents"
     static let firebaseFieldCreatedAt = "createdAt"
-
+    
     
     static let identifierMain = "Main"
     static let identifierLogin = "Login"

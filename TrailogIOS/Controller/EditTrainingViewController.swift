@@ -31,7 +31,7 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func handleDeleteTrainingButton(_ sender: Any) {
         let dialog = UIAlertController(title: Const.confirm,
-                                       message: "\(self.date)のデータを\n削除しますか？",
+                                       message: "\(self.date)\(Const.confirmData)",
                                        preferredStyle: .alert)
         dialog.addAction(UIAlertAction(title: Const.delete, style: .default, handler: { (_) in
             SVProgressHUD.show()
@@ -77,10 +77,10 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         if let user = Auth.auth().currentUser {
             let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
             let trainingDic = [
-                Const.firebaseCollectionNameContents: contentMap,
-                Const.firebaseCollectionNameCreatedAt: FieldValue.serverTimestamp(),
+                Const.firebaseFieldContents: contentMap,
+                Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
             ] as [String : Any]
-            db.collection("\(Const.firebaseCollectionNameTraining)_\(user.uid)").document(date).setData(trainingDic) { err in
+            db.collection("\(Const.firebaseCollectionTraining)_\(user.uid)").document(date).setData(trainingDic) { err in
                 if let err = err {
                     SVProgressHUD.dismiss()
                     Utils.showError(Const.errorFormsNotFilled)
@@ -114,7 +114,7 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         addPickerView.dataSource = self
         return addPickerView
     }
-
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -131,9 +131,9 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         let textField = view.viewWithTag(100 + pickerView.tag) as! UITextField
         textField.text = Const.dropListTraining[row]
     }
-        
+    
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
     }
-
+    
 }

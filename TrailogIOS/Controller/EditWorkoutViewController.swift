@@ -33,13 +33,13 @@ class EditWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func handleDeleteTrainingButton(_ sender: Any) {
         let dialog = UIAlertController(title: Const.confirm,
-                                       message: "\(self.date)のデータを\n削除しますか？",
+                                       message: "\(self.date)\(Const.confirmData)",
                                        preferredStyle: .alert)
         dialog.addAction(UIAlertAction(title: Const.delete, style: .default, handler: { (_) in
             SVProgressHUD.show()
             if let user = Auth.auth().currentUser {
                 let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
-                self.db.collection("\(Const.firebaseCollectionNameWorkout)_\(user.uid)").document(date).delete() { err in
+                self.db.collection("\(Const.firebaseCollectionWorkout)_\(user.uid)").document(date).delete() { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
                         Utils.showError(Const.errorDefault)
@@ -81,10 +81,10 @@ class EditWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if let user = Auth.auth().currentUser {
             let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
             let workoutDic = [
-                Const.firebaseCollectionNameContents: contentMap,
-                Const.firebaseCollectionNameCreatedAt: FieldValue.serverTimestamp(),
+                Const.firebaseFieldContents: contentMap,
+                Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
             ] as [String : Any]
-            db.collection("workouts_\(user.uid)").document(date).setData(workoutDic) { err in
+            db.collection("\(Const.firebaseCollectionWorkout)_\(user.uid)").document(date).setData(workoutDic) { err in
                 if let err = err {
                     SVProgressHUD.dismiss()
                     Utils.showError(Const.errorFormsNotFilled)
@@ -122,7 +122,7 @@ class EditWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicke
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Const.dropListWorkout.count
     }
