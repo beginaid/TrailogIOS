@@ -67,7 +67,7 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
     }
     
     @IBAction func handleDeleteButton(_ sender: Any) {
-        let dialog = UIAlertController(title: Const.confirm, message: "\(date ?? "")\(Const.confirmWeight)", preferredStyle: .alert)
+        let dialog = UIAlertController(title: Const.confirm, message: "\(date ?? "")\(Const.confirmData)", preferredStyle: .alert)
         dialog.addAction(UIAlertAction(title: Const.cancel, style: .cancel, handler: nil))
         dialog.addAction(UIAlertAction(title: Const.ok, style: .default,
                                        handler: { action in

@@ -37,7 +37,7 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
             SVProgressHUD.show()
             if let user = Auth.auth().currentUser {
                 let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
-                self.db.collection("\(Const.firebaseCollectionNameTraining)_\(user.uid)").document(date).delete() { err in
+                self.db.collection("\(Const.firebaseCollectionTraining)_\(user.uid)").document(date).delete() { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
                         Utils.showError(Const.errorDefault)

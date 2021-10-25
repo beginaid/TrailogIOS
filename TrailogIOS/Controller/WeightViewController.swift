@@ -23,7 +23,7 @@ class WeightViewController: UIViewController, ChartViewDelegate {
         super.viewWillAppear(animated)
         SVProgressHUD.show()
         if let user = Auth.auth().currentUser {
-            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionNameWeight)_\(user.uid)")
+            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionWeight)_\(user.uid)")
             listener = docRef.addSnapshotListener() { (querySnapshot, error) in
                 if let error = error {
                     Utils.showError(Const.errorDefault)

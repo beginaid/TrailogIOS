@@ -53,10 +53,10 @@ class AddTrainingViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if let user = Auth.auth().currentUser {
             let date = Utils.getDateFromDatePicker(datePicker)
             let trainingDic = [
-                Const.firebaseCollectionNameContents: contentMap,
-                Const.firebaseCollectionNameCreatedAt: FieldValue.serverTimestamp(),
+                Const.firebaseFieldContents: contentMap,
+                Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
             ] as [String : Any]
-            db.collection("\(Const.firebaseCollectionNameTraining)_\(user.uid)").document(date).setData(trainingDic) { err in
+            db.collection("\(Const.firebaseCollectionTraining)_\(user.uid)").document(date).setData(trainingDic) { err in
                 if let err = err {
                     SVProgressHUD.dismiss()
                     Utils.showError(Const.errorDefault)
