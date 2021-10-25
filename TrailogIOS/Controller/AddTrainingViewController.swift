@@ -81,7 +81,7 @@ class AddTrainingViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBAction func addButton(_ sender: Any) {
         let addPickerView = createPickerView(self.verticalStackView)
-        let addStackView = Utils.createAddStackView(self.verticalStackView, Const.dropListTraining[0],  "", "", addPickerView)
+        let addStackView = Utils.createAddStackViewTraining(self.verticalStackView, Const.dropListTraining[0],  "", "", addPickerView)
         verticalStackView.addArrangedSubview(addStackView)
     }
     
@@ -111,14 +111,6 @@ class AddTrainingViewController: UIViewController, UIPickerViewDelegate, UIPicke
         textField.text = Const.dropListTraining[row]
     }
     
-    @objc func done() {
-        view.endEditing(true)
-    }
-    
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-        return CGRect(x: x, y: y, width: width, height: height)
-    }
-    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
@@ -134,14 +126,5 @@ class AddTrainingViewController: UIViewController, UIPickerViewDelegate, UIPicke
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        self.view.endEditing(true)
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
 }

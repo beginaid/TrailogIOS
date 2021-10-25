@@ -231,7 +231,7 @@ class Utils: NSObject {
         return stackView
     }
     
-    static func createAddStackView(_ verticalStackView: UIStackView, _ eventPlaceholder: String,  _ weightPlaceholder: String,  _ repsPlaceholder: String, _ addPickerView: UIPickerView) -> UIStackView {
+    static func createAddStackViewTraining(_ verticalStackView: UIStackView, _ eventPlaceholder: String,  _ weightPlaceholder: String,  _ repsPlaceholder: String, _ addPickerView: UIPickerView) -> UIStackView {
         let addStackView: UIStackView = UIStackView()
         let addEventTextField = PickerTextField ()
         let addWeightTextField = DoneTextField()
@@ -247,18 +247,56 @@ class Utils: NSObject {
         addWeightTextField.attributedPlaceholder = NSAttributedString(string: "負荷 [kg]", attributes: attributes)
         addWeightTextField.borderStyle = .roundedRect
         addWeightTextField.text = weightPlaceholder
-        addWeightTextField.keyboardType = UIKeyboardType.decimalPad
         addRepsTextField.attributedPlaceholder = NSAttributedString(string: "回数 [回]", attributes: attributes)
         addRepsTextField.borderStyle = .roundedRect
         addRepsTextField.text = repsPlaceholder
-        addRepsTextField.keyboardType = UIKeyboardType.numberPad
         addEventTextField.adjustsFontSizeToFitWidth = true
         addEventTextField.tag = 100 + verticalStackView.subviews.count + 1
         addEventTextField.widthAnchor.constraint(equalTo: addWeightTextField.widthAnchor, multiplier: 2).isActive = true
         addEventTextField.widthAnchor.constraint(equalTo: addRepsTextField.widthAnchor, multiplier: 2).isActive = true
+        addWeightTextField.keyboardType = UIKeyboardType.decimalPad
+        addRepsTextField.keyboardType = UIKeyboardType.numberPad
         
         setHorizontalStackView(addStackView)
         return addStackView
     }
+
+    static func createAddStackViewWorkout(_ verticalStackView: UIStackView, _ eventPlaceholder: String,  _ minutesPlaceholder: String,  _ maxBpmPlaceholder: String,  _ avgBpmPlaceholder: String, _ addPickerView: UIPickerView) -> UIStackView {
+        let addStackView: UIStackView = UIStackView()
+        let addEventTextField = DoneTextField()
+        let addMinutesTextField = DoneTextField()
+        let addMaxBpmTextField = DoneTextField()
+        let addAvgBpmTextField = DoneTextField()
+        addStackView.addArrangedSubview(addEventTextField)
+        addStackView.addArrangedSubview(addMinutesTextField)
+        addStackView.addArrangedSubview(addMaxBpmTextField)
+        addStackView.addArrangedSubview(addAvgBpmTextField)
         
+        
+        let attributes = [NSAttributedString.Key.font:  UIFont.systemFont(ofSize: 16)]
+        addEventTextField.attributedPlaceholder = NSAttributedString(string: "種目", attributes: attributes)
+        addEventTextField.borderStyle = .roundedRect
+        setEventTextField(addEventTextField, addPickerView, eventPlaceholder)
+        addMinutesTextField.attributedPlaceholder = NSAttributedString(string: "時間 [分]", attributes: attributes)
+        addMinutesTextField.borderStyle = .roundedRect
+        addMinutesTextField.text = minutesPlaceholder
+        addMaxBpmTextField.attributedPlaceholder = NSAttributedString(string: "MaxBpm", attributes: attributes)
+        addMaxBpmTextField.borderStyle = .roundedRect
+        addMaxBpmTextField.text = maxBpmPlaceholder
+        addAvgBpmTextField.attributedPlaceholder = NSAttributedString(string: "AvgBpm", attributes: attributes)
+        addAvgBpmTextField.borderStyle = .roundedRect
+        addAvgBpmTextField.text = avgBpmPlaceholder
+        addEventTextField.adjustsFontSizeToFitWidth = true
+        addEventTextField.tag = 100 + verticalStackView.subviews.count + 1
+        addMinutesTextField.widthAnchor.constraint(equalTo: addEventTextField.widthAnchor, multiplier: 1).isActive = true
+        addMaxBpmTextField.widthAnchor.constraint(equalTo: addEventTextField.widthAnchor, multiplier: 1).isActive = true
+        addAvgBpmTextField.widthAnchor.constraint(equalTo: addEventTextField.widthAnchor, multiplier: 1).isActive = true
+        addMinutesTextField.keyboardType = UIKeyboardType.numberPad
+        addMaxBpmTextField.keyboardType = UIKeyboardType.numberPad
+        addAvgBpmTextField.keyboardType = UIKeyboardType.numberPad
+        
+        setHorizontalStackView(addStackView)
+        return addStackView
+    }
+    
 }

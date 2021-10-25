@@ -472,7 +472,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ZLh-Pr-yLl">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                         <subviews>
-                                                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="種目" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLt-pl-KFl" customClass="DoneTextField" customModule="TrailogIOS" customModuleProvider="target">
+                                                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="種目" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NLt-pl-KFl" customClass="PickerTextField" customModule="TrailogIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="90.5" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -480,17 +480,17 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="時間 [分]" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ueP-RJ-Nb4" customClass="DoneTextField" customModule="TrailogIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="94.5" y="0.0" width="90.5" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MaxBpm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-Lu-WZV" customClass="DoneTextField" customModule="TrailogIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="189" y="0.0" width="90.5" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="AvgBpm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dPw-Ut-jgN" customClass="DoneTextField" customModule="TrailogIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="283.5" y="0.0" width="90.5" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -507,6 +507,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQP-yj-Kwv">
                                                         <rect key="frame" x="0.0" y="0.5" width="20" height="21"/>
+                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" backgroundImage="minus.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="deleteButton:" destination="X0h-eV-cVM" eventType="touchUpInside" id="Ovj-Qq-kPQ"/>
@@ -514,6 +515,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1C-kW-q9n">
                                                         <rect key="frame" x="60" y="0.0" width="20" height="22"/>
+                                                        <color key="tintColor" name="Black"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="addButton:" destination="X0h-eV-cVM" eventType="touchUpInside" id="9k2-3d-jpB"/>
@@ -893,6 +895,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ik-B7-ZqS">
                                                         <rect key="frame" x="0.0" y="0.5" width="20" height="21"/>
+                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" backgroundImage="minus.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="deleteButton:" destination="X0h-eV-cVM" eventType="touchUpInside" id="Fi6-Yb-IP1"/>
@@ -901,6 +904,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEV-kh-Nwc">
                                                         <rect key="frame" x="60" y="0.0" width="20" height="22"/>
+                                                        <color key="tintColor" name="Black"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="addButton:" destination="X0h-eV-cVM" eventType="touchUpInside" id="5WT-99-X6w"/>
@@ -1066,6 +1070,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKD-FR-rYj">
                                                         <rect key="frame" x="0.0" y="0.5" width="20" height="21"/>
+                                                        <color key="tintColor" name="AccentColor"/>
                                                         <state key="normal" backgroundImage="minus.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="deleteButton:" destination="X0h-eV-cVM" eventType="touchUpInside" id="Q3O-sT-8Tk"/>
@@ -1074,6 +1079,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJk-4K-t6k">
                                                         <rect key="frame" x="60" y="0.0" width="20" height="22"/>
+                                                        <color key="tintColor" name="Black"/>
                                                         <state key="normal" image="plus.circle" catalog="system"/>
                                                         <connections>
                                                             <action selector="addButton:" destination="Rlr-hB-TDi" eventType="touchUpInside" id="co6-CI-fE1"/>

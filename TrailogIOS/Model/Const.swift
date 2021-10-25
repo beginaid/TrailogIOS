@@ -36,6 +36,9 @@ struct Const {
     static let firebaseCollectionNameCreatedAt = "createdAt"
     static let firebaseFieldWeight = "負荷"
     static let firebaseFieldReps = "回数"
+    static let firebaseFieldMinutes = "時間"
+    static let firebaseFieldMaxBpm = "最大心拍"
+    static let firebaseFieldAvgBpm = "平均心拍"
     
     static let identifierMain = "Main"
     static let identifierLogin = "Login"

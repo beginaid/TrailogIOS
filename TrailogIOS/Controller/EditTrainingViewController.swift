@@ -18,17 +18,13 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         dateLabel.text = date
-        addButton.tintColor = .black
-        deleteButton.tintColor = UIColor(named: Const.colorAccent)
-        registerButton.backgroundColor = UIColor(named: Const.colorBlack)
-        registerButton.layer.cornerRadius = 3.0
-        deleteTrainingButton.backgroundColor = UIColor(named: Const.colorAccent)
-        deleteTrainingButton.layer.cornerRadius = 3.0
+        Utils.setButtonStyle(registerButton, Const.colorBlack)
+        Utils.setButtonStyle(deleteTrainingButton, Const.colorAccent)
         for event in contentsMap.keys {
             let weight = contentsMap[event]![Const.firebaseFieldWeight]!
             let reps = contentsMap[event]![Const.firebaseFieldReps]!
             let addPickerView = createPickerView(self.verticalStackView)
-            let addStackView = Utils.createAddStackView(self.verticalStackView, event, weight, reps, addPickerView)
+            let addStackView = Utils.createAddStackViewTraining(self.verticalStackView, event, weight, reps, addPickerView)
             verticalStackView.addArrangedSubview(addStackView)
         }
     }
@@ -40,9 +36,8 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         dialog.addAction(UIAlertAction(title: Const.delete, style: .default, handler: { (_) in
             SVProgressHUD.show()
             if let user = Auth.auth().currentUser {
-                let uid = user.uid
                 let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
-                self.db.collection("\(Const.firebaseCollectionNameTraining)_\(uid)").document(date).delete() { err in
+                self.db.collection("\(Const.firebaseCollectionNameTraining)_\(user.uid)").document(date).delete() { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
                         Utils.showError(Const.errorDefault)
@@ -82,8 +77,8 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         if let user = Auth.auth().currentUser {
             let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
             let trainingDic = [
-                "contents": contentMap,
-                "createdAd": FieldValue.serverTimestamp(),
+                Const.firebaseCollectionNameContents: contentMap,
+                Const.firebaseCollectionNameCreatedAt: FieldValue.serverTimestamp(),
             ] as [String : Any]
             db.collection("\(Const.firebaseCollectionNameTraining)_\(user.uid)").document(date).setData(trainingDic) { err in
                 if let err = err {
@@ -108,14 +103,10 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBAction func addButton(_ sender: Any) {
         let addPickerView = createPickerView(self.verticalStackView)
-        let addStackView = Utils.createAddStackView(self.verticalStackView, Const.dropListTraining[0],  "", "", addPickerView)
+        let addStackView = Utils.createAddStackViewTraining(self.verticalStackView, Const.dropListTraining[0],  "", "", addPickerView)
         verticalStackView.addArrangedSubview(addStackView)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-
     func createPickerView(_ verticalStackView: UIStackView) -> UIPickerView {
         let addPickerView: UIPickerView = UIPickerView()
         addPickerView.tag = verticalStackView.subviews.count + 1
