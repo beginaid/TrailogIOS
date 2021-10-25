@@ -26,7 +26,7 @@
 		B35CB71827225E1F0006C139 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71327225E1F0006C139 /* Const.swift */; };
 		B35CB72B27225E4B0006C139 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71A27225E4B0006C139 /* SignupViewController.swift */; };
 		B35CB72C27225E4B0006C139 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71B27225E4B0006C139 /* SettingViewController.swift */; };
-		B35CB72D27225E4B0006C139 /* editDeleteWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71C27225E4B0006C139 /* editDeleteWeightViewController.swift */; };
+		B35CB72D27225E4B0006C139 /* EditDeleteWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71C27225E4B0006C139 /* EditDeleteWeightViewController.swift */; };
 		B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71D27225E4B0006C139 /* AddViewController.swift */; };
 		B35CB72F27225E4B0006C139 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */; };
 		B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71F27225E4B0006C139 /* WeightViewController.swift */; };
@@ -69,7 +69,7 @@
 		B35CB71327225E1F0006C139 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B35CB71A27225E4B0006C139 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B35CB71B27225E4B0006C139 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		B35CB71C27225E4B0006C139 /* editDeleteWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = editDeleteWeightViewController.swift; sourceTree = "<group>"; };
+		B35CB71C27225E4B0006C139 /* EditDeleteWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDeleteWeightViewController.swift; sourceTree = "<group>"; };
 		B35CB71D27225E4B0006C139 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		B35CB71F27225E4B0006C139 /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			children = (
 				B35CB71A27225E4B0006C139 /* SignupViewController.swift */,
 				B35CB71B27225E4B0006C139 /* SettingViewController.swift */,
-				B35CB71C27225E4B0006C139 /* editDeleteWeightViewController.swift */,
+				B35CB71C27225E4B0006C139 /* EditDeleteWeightViewController.swift */,
 				B35CB71D27225E4B0006C139 /* AddViewController.swift */,
 				B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */,
 				B35CB71F27225E4B0006C139 /* WeightViewController.swift */,
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */,
-				B35CB72D27225E4B0006C139 /* editDeleteWeightViewController.swift in Sources */,
+				B35CB72D27225E4B0006C139 /* EditDeleteWeightViewController.swift in Sources */,
 				B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */,
 				B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */,
 				B35CB73127225E4B0006C139 /* TrainingViewController.swift in Sources */,

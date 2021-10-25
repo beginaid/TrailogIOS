@@ -6,6 +6,11 @@ class Utils: NSObject {
     
     static let db = Firestore.firestore()
     
+    static func setEventTextField(_ eventTextField: UITextField, _ pickerView: UIPickerView, _ placeholder: String) {
+        eventTextField.inputView = pickerView
+        eventTextField.text = placeholder
+    }
+    
     static func showError(_ displayWords: String) {
         SVProgressHUD.showError(withStatus: displayWords)
     }
@@ -199,6 +204,7 @@ class Utils: NSObject {
         addStackView.axis = .horizontal
         addStackView.alignment = .fill
         addStackView.distribution = .equalSpacing
+        addStackView.spacing = 4
         addStackView.translatesAutoresizingMaskIntoConstraints = false
         addStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
@@ -237,7 +243,7 @@ class Utils: NSObject {
         let attributes = [NSAttributedString.Key.font:  UIFont.systemFont(ofSize: 16)]
         addEventTextField.attributedPlaceholder = NSAttributedString(string: "種目", attributes: attributes)
         addEventTextField.borderStyle = .roundedRect
-        addEventTextField.text = eventPlaceholder
+        setEventTextField(addEventTextField, addPickerView, eventPlaceholder)
         addWeightTextField.attributedPlaceholder = NSAttributedString(string: "負荷 [kg]", attributes: attributes)
         addWeightTextField.borderStyle = .roundedRect
         addWeightTextField.text = weightPlaceholder
@@ -251,14 +257,8 @@ class Utils: NSObject {
         addEventTextField.widthAnchor.constraint(equalTo: addWeightTextField.widthAnchor, multiplier: 2).isActive = true
         addEventTextField.widthAnchor.constraint(equalTo: addRepsTextField.widthAnchor, multiplier: 2).isActive = true
         
-        addStackView.axis = .horizontal
-        addStackView.alignment = .fill
-        addStackView.distribution = .equalSpacing
-        addStackView.spacing = 4
-        addStackView.translatesAutoresizingMaskIntoConstraints = false
-        addStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        addEventTextField.inputView = addPickerView
+        setHorizontalStackView(addStackView)
         return addStackView
     }
-    
+        
 }

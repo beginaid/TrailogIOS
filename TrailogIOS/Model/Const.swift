@@ -15,7 +15,8 @@ struct Const {
     static let successAddTraining = "筋トレ編集完了"
     static let successAddWorkout = "有酸素編集完了"
     static let successDelete = "削除完了"
-    static let successEdit = "削除完了"
+    static let successEdit = "編集完了"
+    static let successAdd = "追加完了"
     
     static let confirm = "確認"
     static let delete = "削除"
@@ -32,6 +33,7 @@ struct Const {
     static let firebaseCollectionNameTraining = "trainings"
     static let firebaseCollectionNameWorkout = "workouts"
     static let firebaseCollectionNameContents = "contents"
+    static let firebaseCollectionNameCreatedAt = "createdAt"
     static let firebaseFieldWeight = "負荷"
     static let firebaseFieldReps = "回数"
     
