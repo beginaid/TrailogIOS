@@ -19,48 +19,46 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         super.viewDidLoad()
         dateLabel.text = date
         addButton.tintColor = .black
-        deleteButton.tintColor = UIColor(named: "AccentColor")
-        registerButton.backgroundColor = UIColor(named: "Black")
+        deleteButton.tintColor = UIColor(named: Const.colorAccent)
+        registerButton.backgroundColor = UIColor(named: Const.colorBlack)
         registerButton.layer.cornerRadius = 3.0
-        deleteTrainingButton.backgroundColor = UIColor(named: "AccentColor")
+        deleteTrainingButton.backgroundColor = UIColor(named: Const.colorAccent)
         deleteTrainingButton.layer.cornerRadius = 3.0
-        
         for event in contentsMap.keys {
-            let weight = contentsMap[event]!["負荷"]!
-            let reps = contentsMap[event]!["回数"]!
+            let weight = contentsMap[event]![Const.firebaseFieldWeight]!
+            let reps = contentsMap[event]![Const.firebaseFieldReps]!
             addForm(self.verticalStackView, event, weight, reps)
         }
     }
     
     @IBAction func handleDeleteTrainingButton(_ sender: Any) {
-        let dialog = UIAlertController(title: "確認",
+        let dialog = UIAlertController(title: Const.confirm,
                                        message: "\(self.date)のデータを\n削除しますか？",
                                        preferredStyle: .alert)
-        dialog.addAction(UIAlertAction(title: "削除", style: .default, handler: { (_) in
+        dialog.addAction(UIAlertAction(title: Const.delete, style: .default, handler: { (_) in
             SVProgressHUD.show()
             if let user = Auth.auth().currentUser {
                 let uid = user.uid
-                let date = "2021-" + self.date.replacingOccurrences(of: "/", with: "-")
-                self.db.collection("trainings_\(uid)").document(date).delete() { err in
+                let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
+                self.db.collection("\(Const.firebaseCollectionNameTraining)_\(uid)").document(date).delete() { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showError(withStatus: "エラーが発生しました")
+                        Utils.showError(Const.errorDefault)
                         print(err)
                     } else {
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showSuccess(withStatus: "トレーニング削除完了")
+                        Utils.showSuccess(Const.successDelete)
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
             }
         }))
-        dialog.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        dialog.addAction(UIAlertAction(title: Const.cancel, style: .cancel, handler: nil))
         self.present(dialog, animated: true, completion: nil)
     }
     
     @IBAction func handleRegisterButton(_ sender: Any) {
         var contentMap = [String: [String: String]]()
-        
         let verticalSubviews = self.verticalStackView.subviews
         for verticalView in verticalSubviews {
             let horizontalSubviews = verticalView.subviews
@@ -69,31 +67,30 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
                    let weight = (horizontalSubviews[1] as! UITextField).text,
                    let reps = (horizontalSubviews[2] as! UITextField).text{
                     if event.isEmpty || weight.isEmpty || reps.isEmpty {
-                        SVProgressHUD.showError(withStatus: "内容を全て入力して下さい")
+                        Utils.showError(Const.errorFormsNotFilled)
                         return
                     }
-                    contentMap.updateValue(["負荷": weight], forKey: event)
-                    contentMap[event]!["回数"] = reps
+                    contentMap.updateValue([Const.firebaseFieldWeight: weight], forKey: event)
+                    contentMap[event]![Const.firebaseFieldReps] = reps
                 }
             }
         }
         
         SVProgressHUD.show()
         if let user = Auth.auth().currentUser {
-            let uid = user.uid
-            let date = "2021-" + self.date.replacingOccurrences(of: "/", with: "-")
+            let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
             let trainingDic = [
                 "contents": contentMap,
                 "createdAd": FieldValue.serverTimestamp(),
             ] as [String : Any]
-            db.collection("trainings_\(uid)").document(date).setData(trainingDic) { err in
+            db.collection("\(Const.firebaseCollectionNameTraining)_\(user.uid)").document(date).setData(trainingDic) { err in
                 if let err = err {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "エラーが発生しました")
+                    Utils.showError(Const.errorFormsNotFilled)
                     print(err)
                 } else {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showSuccess(withStatus: "トレーニング編集完了")
+                    Utils.showSuccess(Const.successEdit)
                     self.dismiss(animated: true, completion: nil)
                 }
             }
@@ -111,12 +108,16 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         addForm(self.verticalStackView, Const.dropListTraining[0], "", "")
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     func addForm(_ verticalStackView: UIStackView, _ eventPlaceholder: String,  _ weightPlaceholder: String,  _ repsPlaceholder: String) {
         let addPickerView = createPickerView(verticalStackView)
-        let addStackView = createAddStackView(verticalStackView, eventPlaceholder,  weightPlaceholder, repsPlaceholder, addPickerView)
+        let addStackView = Utils.createAddStackView(verticalStackView, eventPlaceholder,  weightPlaceholder, repsPlaceholder, addPickerView)
         verticalStackView.addArrangedSubview(addStackView)
     }
-        
+    
     func createPickerView(_ verticalStackView: UIStackView) -> UIPickerView {
         let addPickerView: UIPickerView = UIPickerView()
         addPickerView.tag = verticalStackView.subviews.count + 1
@@ -124,44 +125,7 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         addPickerView.dataSource = self
         return addPickerView
     }
-    
-    func createAddStackView(_ verticalStackView: UIStackView, _ eventPlaceholder: String,  _ weightPlaceholder: String,  _ repsPlaceholder: String, _ addPickerView: UIPickerView) -> UIStackView {
-        let addStackView: UIStackView = UIStackView()
-        let addEventTextField = DoneTextField()
-        let addWeightTextField = DoneTextField()
-        let addRepsTextField = DoneTextField()
-        addStackView.addArrangedSubview(addEventTextField)
-        addStackView.addArrangedSubview(addWeightTextField)
-        addStackView.addArrangedSubview(addRepsTextField)
-        
-        let attributes = [NSAttributedString.Key.font:  UIFont.systemFont(ofSize: 16)]
-        addEventTextField.attributedPlaceholder = NSAttributedString(string: "種目", attributes: attributes)
-        addEventTextField.borderStyle = .roundedRect
-        addEventTextField.text = eventPlaceholder
-        addWeightTextField.attributedPlaceholder = NSAttributedString(string: "負荷 [kg]", attributes: attributes)
-        addWeightTextField.borderStyle = .roundedRect
-        addWeightTextField.text = weightPlaceholder
-        addWeightTextField.keyboardType = UIKeyboardType.decimalPad
-        addRepsTextField.attributedPlaceholder = NSAttributedString(string: "回数 [回]", attributes: attributes)
-        addRepsTextField.borderStyle = .roundedRect
-        addRepsTextField.text = repsPlaceholder
-        addRepsTextField.keyboardType = UIKeyboardType.numberPad
-        addEventTextField.adjustsFontSizeToFitWidth = true
-        addEventTextField.tag = 100 + verticalStackView.subviews.count + 1
-        addEventTextField.widthAnchor.constraint(equalTo: addWeightTextField.widthAnchor, multiplier: 2).isActive = true
-        addEventTextField.widthAnchor.constraint(equalTo: addRepsTextField.widthAnchor, multiplier: 2).isActive = true
-        
-        addStackView.axis = .horizontal
-        addStackView.alignment = .fill
-        addStackView.distribution = .equalSpacing
-        addStackView.spacing = 4
-        addStackView.translatesAutoresizingMaskIntoConstraints = false
-        addStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        addEventTextField.inputView = addPickerView
-        return addStackView
-    }
-    
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -178,25 +142,9 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         let textField = view.viewWithTag(100 + pickerView.tag) as! UITextField
         textField.text = Const.dropListTraining[row]
     }
-    
-    @objc func done() {
-        view.endEditing(true)
-    }
-    
+        
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
         return CGRect(x: x, y: y, width: width, height: height)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        view.endEditing(true)
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
+
 }

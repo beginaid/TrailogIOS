@@ -335,7 +335,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="KvX-gi-QQl">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
                                                         <subviews>
-                                                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="種目" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="C2u-Wn-oqB" customClass="DoneTextField" customModule="TrailogIOS" customModuleProvider="target">
+                                                            <textField opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="種目" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="C2u-Wn-oqB" customClass="DoneTextField" customModule="TrailogIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits"/>

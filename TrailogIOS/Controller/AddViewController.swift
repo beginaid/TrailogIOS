@@ -10,7 +10,6 @@ class AddViewController: UIViewController, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         view.backgroundColor = Const.rgbLightBlack
         tableView.register(UINib(nibName: Const.identifierTableViewCell, bundle: nil), forCellReuseIdentifier: Const.identifierCell)
         cellDataArray.append(CellData(imagePath: Const.weightEN, eventName: Const.addWeightJP))

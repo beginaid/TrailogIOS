@@ -53,6 +53,7 @@ class Utils: NSObject {
     
     static func createTableViewCell(_ tableView: UITableView, _ indexPath: IndexPath, _ data: CellData) -> TableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.identifierCell, for: indexPath) as! TableViewCell
+        cell.backgroundColor = UIColor(named: "LightBlack")
         cell.setCellData(data)
         return cell
     }
@@ -199,7 +200,7 @@ class Utils: NSObject {
         addStackView.alignment = .fill
         addStackView.distribution = .equalSpacing
         addStackView.translatesAutoresizingMaskIntoConstraints = false
-        addStackView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        addStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     static func createVerticalStackView(_ cell: UITableViewCell, _ date: String) -> UIStackView {
@@ -223,4 +224,41 @@ class Utils: NSObject {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }
+    
+    static func createAddStackView(_ verticalStackView: UIStackView, _ eventPlaceholder: String,  _ weightPlaceholder: String,  _ repsPlaceholder: String, _ addPickerView: UIPickerView) -> UIStackView {
+        let addStackView: UIStackView = UIStackView()
+        let addEventTextField = PickerTextField ()
+        let addWeightTextField = DoneTextField()
+        let addRepsTextField = DoneTextField()
+        addStackView.addArrangedSubview(addEventTextField)
+        addStackView.addArrangedSubview(addWeightTextField)
+        addStackView.addArrangedSubview(addRepsTextField)
+        
+        let attributes = [NSAttributedString.Key.font:  UIFont.systemFont(ofSize: 16)]
+        addEventTextField.attributedPlaceholder = NSAttributedString(string: "種目", attributes: attributes)
+        addEventTextField.borderStyle = .roundedRect
+        addEventTextField.text = eventPlaceholder
+        addWeightTextField.attributedPlaceholder = NSAttributedString(string: "負荷 [kg]", attributes: attributes)
+        addWeightTextField.borderStyle = .roundedRect
+        addWeightTextField.text = weightPlaceholder
+        addWeightTextField.keyboardType = UIKeyboardType.decimalPad
+        addRepsTextField.attributedPlaceholder = NSAttributedString(string: "回数 [回]", attributes: attributes)
+        addRepsTextField.borderStyle = .roundedRect
+        addRepsTextField.text = repsPlaceholder
+        addRepsTextField.keyboardType = UIKeyboardType.numberPad
+        addEventTextField.adjustsFontSizeToFitWidth = true
+        addEventTextField.tag = 100 + verticalStackView.subviews.count + 1
+        addEventTextField.widthAnchor.constraint(equalTo: addWeightTextField.widthAnchor, multiplier: 2).isActive = true
+        addEventTextField.widthAnchor.constraint(equalTo: addRepsTextField.widthAnchor, multiplier: 2).isActive = true
+        
+        addStackView.axis = .horizontal
+        addStackView.alignment = .fill
+        addStackView.distribution = .equalSpacing
+        addStackView.spacing = 4
+        addStackView.translatesAutoresizingMaskIntoConstraints = false
+        addStackView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        addEventTextField.inputView = addPickerView
+        return addStackView
+    }
+    
 }

@@ -23,8 +23,7 @@ class WorkoutViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let user = Auth.auth().currentUser {
-            let uid = user.uid
-            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionNameWorkout)_\(uid)")
+            let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionNameWorkout)_\(user.uid)")
             listener = docRef.addSnapshotListener() { (querySnapshot, error) in
                 if let error = error {
                     Utils.showError(Const.errorDefault)

@@ -78,16 +78,15 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
                                        handler: { action in
                                         SVProgressHUD.show()
                                         if let user = Auth.auth().currentUser {
-                                            let uid = user.uid
                                             let date = "\(Const.year)-\(self.date.replacingOccurrences(of: "/", with: "-"))"
-                                            self.db.collection("weights_\(uid)").document(date).delete() { err in
+                                            self.db.collection("weights_\(user.uid)").document(date).delete() { err in
                                                 if let err = err {
                                                     SVProgressHUD.dismiss()
                                                     Utils.showError(Const.errorDefault)
                                                     print(err)
                                                 } else {
                                                     SVProgressHUD.dismiss()
-                                                    Utils.showSuccess(Const.successDeleteWeight)
+                                                    Utils.showSuccess(Const.successDelete)
                                                     self.dismiss(animated: true, completion: nil)
                                                 }
                                             }

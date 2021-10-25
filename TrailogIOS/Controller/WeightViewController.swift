@@ -58,7 +58,7 @@ class WeightViewController: UIViewController, ChartViewDelegate {
             let sliceIndex = dataSet.entryIndex(entry: entry)
             let date = self.dateArray[sliceIndex]
             let weight = self.weightArray[sliceIndex]
-            let editDeleteWeightViewController = (self.storyboard?.instantiateViewController(withIdentifier: "EditDeleteWeight")) as! editDeleteWeightViewController
+            let editDeleteWeightViewController = (self.storyboard?.instantiateViewController(withIdentifier: Const.identifierEditDeleteWeight)) as! editDeleteWeightViewController
             editDeleteWeightViewController.date = date
             editDeleteWeightViewController.weight = String(weight)
             self.present(editDeleteWeightViewController, animated: true, completion: nil)
@@ -70,20 +70,20 @@ class WeightViewController: UIViewController, ChartViewDelegate {
         for (i, d) in self.weightArray.enumerated(){
             entry.append(ChartDataEntry(x: Double(i), y: d))
         }
-        let dataset = LineChartDataSet(entries: entry, label: "Weights")
+        let dataset = LineChartDataSet(entries: entry, label: Const.weightEN)
         dataset.drawValuesEnabled = false
         dataset.lineWidth = 2
-        dataset.setColor(UIColor(named: "AccentColor")!)
+        dataset.setColor(UIColor(named: Const.colorAccent)!)
         dataset.circleRadius = 6
         dataset.drawCircleHoleEnabled = false
         dataset.highlightColor = .clear
-        dataset.setCircleColor(UIColor(named: "AccentColor")!)
+        dataset.setCircleColor(UIColor(named: Const.colorAccent)!)
         
         lineChart.xAxis.labelPosition = .bottom
         lineChart.rightAxis.enabled = false
         lineChart.legend.enabled = false
-        lineChart.xAxis.labelFont = UIFont.systemFont(ofSize: 12)
-        lineChart.leftAxis.labelFont = UIFont.systemFont(ofSize: 12)
+        lineChart.xAxis.labelFont = Const.systemFont
+        lineChart.leftAxis.labelFont = Const.systemFont
         lineChart.xAxis.labelCount = self.dateArray.count
         lineChart.xAxis.granularityEnabled = true
         lineChart.xAxis.granularity = 1.0
@@ -97,12 +97,10 @@ class WeightViewController: UIViewController, ChartViewDelegate {
     
     class ChartFormatter: NSObject, IAxisValueFormatter {
         var xAxisValues: [String] = []
-        
         init(date: [String]) {
             super.init()
             self.xAxisValues = date
-        }
-        
+        }        
         func stringForValue(_ value: Double, axis: AxisBase?) -> String {
             let index = Int(value)
             if (xAxisValues.count <= index || value < 0){

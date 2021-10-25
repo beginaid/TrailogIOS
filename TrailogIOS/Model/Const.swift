@@ -15,6 +15,11 @@ struct Const {
     static let successAddTraining = "筋トレ編集完了"
     static let successAddWorkout = "有酸素編集完了"
     static let successDelete = "削除完了"
+    static let successEdit = "削除完了"
+    
+    static let confirm = "確認"
+    static let delete = "削除"
+    static let cancel = "削除"
     
     static let weightEN = "weight"
     static let addWeightJP = "体重追加"
@@ -26,7 +31,9 @@ struct Const {
     static let firebaseCollectionNameWeight = "weights"
     static let firebaseCollectionNameTraining = "trainings"
     static let firebaseCollectionNameWorkout = "workouts"
-    static let firebaseCollectionNameContents = "contentss"
+    static let firebaseCollectionNameContents = "contents"
+    static let firebaseFieldWeight = "負荷"
+    static let firebaseFieldReps = "回数"
     
     static let identifierMain = "Main"
     static let identifierLogin = "Login"
@@ -37,12 +44,14 @@ struct Const {
     static let identifierAddWorkout = "AddWorkout"
     static let identifierEditWorkout = "EditWorkout"
     static let identifierEditTraining = "EditTraining"
+    static let identifierEditDeleteWeight = "EditDeleteWeight"
     static let identifierTrainingCell = "TrainingCell"
     static let identifierWorkoutCell = "WorkoutCell"
     
     static let colorAccent = "AccentColor"
     static let colorBlack = "Black"
     static let rgbLightBlack = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+    static let systemFont = UIFont.systemFont(ofSize: 12)
     
     static let heightAddMenuCell = 60.0
     
