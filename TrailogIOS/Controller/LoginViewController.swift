@@ -2,7 +2,7 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class LoginViewController: UIViewController, UITextViewDelegate {
+class LoginViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate  {
     
     @IBOutlet weak var mailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -11,6 +11,8 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mailTextField.delegate = self
+        passwordTextField.delegate = self
         signupTextView.delegate = self
         Utils.setButtonStyle(loginButton, Const.colorAccent)
         Utils.setHyperTextStyle(signupTextView)

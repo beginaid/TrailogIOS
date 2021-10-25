@@ -12,6 +12,6 @@ class SettingViewController: UIViewController {
     
     @IBAction func handleLogoutButton(_ sender: Any) {
         try! Auth.auth().signOut()
-        Utils.updateRootWindow(self.storyboard!, Const.identifierLogin)
+        Utils.updateRootWindowWithNavigation(self.storyboard!, Const.identifierLogin)
     }
 }

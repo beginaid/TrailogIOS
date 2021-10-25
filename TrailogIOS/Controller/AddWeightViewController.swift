@@ -33,9 +33,11 @@ class AddWeightViewController: UIViewController {
                     return
                 }
                 let weightDic = [
-                    Const.firebaseFieldWeight: weightText,
+                    Const.weightEN: weightText,
                     Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
                 ] as [String : Any]
+                print(date)
+                print(weightDic)
                 db.collection("\(Const.firebaseCollectionWeight)_\(user.uid)").document(date).setData(weightDic) { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
@@ -68,4 +70,13 @@ class AddWeightViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        self.view.endEditing(true)
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 }

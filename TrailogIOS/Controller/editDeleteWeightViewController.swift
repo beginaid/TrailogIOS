@@ -47,7 +47,7 @@ class editDeleteWeightViewController: UIViewController, UIGestureRecognizerDeleg
                     return
                 }
                 let weightDic = [
-                    Const.firebaseFieldWeight: weightText,
+                    Const.weightEN: weightText,
                     Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
                 ] as [String : Any]
                 db.collection("\(Const.firebaseCollectionWeight)_\(user.uid)").document(date).setData(weightDic) { err in

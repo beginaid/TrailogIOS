@@ -5,12 +5,7 @@ import Firebase
 class Utils: NSObject {
     
     static let db = Firestore.firestore()
-    
-    static func setEventTextField(_ eventTextField: UITextField, _ pickerView: UIPickerView, _ placeholder: String) {
-        eventTextField.inputView = pickerView
-        eventTextField.text = placeholder
-    }
-    
+        
     static func showError(_ displayWords: String) {
         SVProgressHUD.showError(withStatus: displayWords)
     }
@@ -69,9 +64,16 @@ class Utils: NSObject {
     }
     
     static func updateRootWindow(_ storyboard: UIStoryboard, _ identifier: String) {
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        let targetViewController = storyboard.instantiateViewController(withIdentifier: identifier)
         let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
-        keywindow!.rootViewController = mainViewController
+        keywindow!.rootViewController = targetViewController
+    }
+
+    static func updateRootWindowWithNavigation(_ storyboard: UIStoryboard, _ identifier: String) {
+        let targetViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+        let navViewController = UINavigationController(rootViewController: targetViewController)
+        let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
+        keywindow!.rootViewController = navViewController
     }
     
     static func getYearMonthDayFromDate(_ date: String) -> String {
@@ -128,6 +130,9 @@ class Utils: NSObject {
     }
     
     static func setTrainingCell(_ cell: UITableViewCell, _ indexPath: IndexPath, _ dateArray: [String], _ contentsMap: [String: [String: [String: String]]]) {
+        for subview in cell.contentView.subviews {
+            subview.removeFromSuperview()
+        }
         var eventArray: [String] = []
         var weightArray: [String] = []
         var repsArray: [String] = []
@@ -161,6 +166,9 @@ class Utils: NSObject {
     }
 
     static func setWorkoutCell(_ cell: UITableViewCell, _ indexPath: IndexPath, _ dateArray: [String], _ contentsMap: [String: [String: [String: String]]]) {
+        for subview in cell.contentView.subviews {
+            subview.removeFromSuperview()
+        }
         var eventArray: [String] = []
         var minutesArray: [String] = []
         var maxBpmArray: [String] = []
@@ -299,4 +307,9 @@ class Utils: NSObject {
         return addStackView
     }
     
+    static func setEventTextField(_ eventTextField: UITextField, _ pickerView: UIPickerView, _ placeholder: String) {
+        eventTextField.inputView = pickerView
+        eventTextField.text = placeholder
+    }
+
 }

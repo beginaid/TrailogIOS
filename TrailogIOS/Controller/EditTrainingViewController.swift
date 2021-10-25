@@ -23,7 +23,7 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
         for event in contentsMap.keys {
             let weight = contentsMap[event]![Const.firebaseFieldWeight]!
             let reps = contentsMap[event]![Const.firebaseFieldReps]!
-            let addPickerView = createPickerView(self.verticalStackView)
+            let addPickerView = createPickerView(self.verticalStackView, event)
             let addStackView = Utils.createAddStackViewTraining(self.verticalStackView, event, weight, reps, addPickerView)
             verticalStackView.addArrangedSubview(addStackView)
         }
@@ -102,16 +102,17 @@ class EditTrainingViewController: UIViewController, UIPickerViewDelegate, UIPick
     }
     
     @IBAction func addButton(_ sender: Any) {
-        let addPickerView = createPickerView(self.verticalStackView)
+        let addPickerView = createPickerView(self.verticalStackView, Const.dropListTraining[0])
         let addStackView = Utils.createAddStackViewTraining(self.verticalStackView, Const.dropListTraining[0],  "", "", addPickerView)
         verticalStackView.addArrangedSubview(addStackView)
     }
     
-    func createPickerView(_ verticalStackView: UIStackView) -> UIPickerView {
+    func createPickerView(_ verticalStackView: UIStackView, _ event: String) -> UIPickerView {
         let addPickerView: UIPickerView = UIPickerView()
         addPickerView.tag = verticalStackView.subviews.count + 1
         addPickerView.delegate = self
         addPickerView.dataSource = self
+        addPickerView.selectRow(Const.dropListTraining.firstIndex(of: event)!, inComponent: 0, animated: false)
         return addPickerView
     }
     

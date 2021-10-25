@@ -20,13 +20,12 @@ class EditWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicke
         dateLabel.text = date
         Utils.setButtonStyle(registerButton, Const.colorBlack)
         Utils.setButtonStyle(deleteWorkoutButton, Const.colorAccent)
-        
         for event in contentsMap.keys {
             let minutes = contentsMap[event]![Const.firebaseFieldMinutes]!
             let maxBpm = contentsMap[event]![Const.firebaseFieldMaxBpm]!
             let avgBpm = contentsMap[event]![Const.firebaseFieldAvgBpm]!
-            let addPickerView = createPickerView(self.verticalStackView)
-            let addStackView = Utils.createAddStackViewWorkout(self.verticalStackView, Const.dropListWorkout[0],  minutes, maxBpm, avgBpm, addPickerView)
+            let addPickerView = createPickerView(self.verticalStackView, event)
+            let addStackView = Utils.createAddStackViewWorkout(self.verticalStackView, event,  minutes, maxBpm, avgBpm, addPickerView)
             verticalStackView.addArrangedSubview(addStackView)
         }
     }
@@ -106,16 +105,17 @@ class EditWorkoutViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func addButton(_ sender: Any) {
-        let addPickerView = createPickerView(self.verticalStackView)
+        let addPickerView = createPickerView(self.verticalStackView, Const.dropListWorkout[0])
         let addStackView = Utils.createAddStackViewWorkout(self.verticalStackView, Const.dropListWorkout[0],  "", "", "", addPickerView)
         verticalStackView.addArrangedSubview(addStackView)
     }
     
-    func createPickerView(_ verticalStackView: UIStackView) -> UIPickerView {
+    func createPickerView(_ verticalStackView: UIStackView, _ event: String) -> UIPickerView {
         let addPickerView: UIPickerView = UIPickerView()
         addPickerView.tag = verticalStackView.subviews.count + 1
         addPickerView.delegate = self
         addPickerView.dataSource = self
+        addPickerView.selectRow(Const.dropListWorkout.firstIndex(of: event)!, inComponent: 0, animated: false)
         return addPickerView
     }
     
