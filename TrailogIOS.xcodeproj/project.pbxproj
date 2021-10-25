@@ -3,27 +3,92 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9064981E479FFC786335302 /* Pods_TrailogIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */; };
+		B313C9CF2726536E00113B59 /* PickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313C9CE2726536E00113B59 /* PickerTextField.swift */; };
 		B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6E8272255680006C139 /* AppDelegate.swift */; };
 		B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EA272255680006C139 /* SceneDelegate.swift */; };
-		B35CB6ED272255680006C139 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB6EC272255680006C139 /* ViewController.swift */; };
-		B35CB6F0272255680006C139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6EE272255680006C139 /* Main.storyboard */; };
-		B35CB6F2272255690006C139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F1272255690006C139 /* Assets.xcassets */; };
-		B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6F3272255690006C139 /* LaunchScreen.storyboard */; };
+		B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */; };
+		B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B35CB6FE27225DC20006C139 /* Assets.xcassets */; };
+		B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */; };
+		B35CB70927225DE40006C139 /* SemiModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70227225DE40006C139 /* SemiModalPresenter.swift */; };
+		B35CB70A27225DE40006C139 /* SemiModalDismissAnimatedTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70327225DE40006C139 /* SemiModalDismissAnimatedTransition.swift */; };
+		B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */; };
+		B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */; };
+		B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */; };
+		B35CB71427225E1F0006C139 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB70F27225E1F0006C139 /* Weight.swift */; };
+		B35CB71527225E1F0006C139 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71027225E1F0006C139 /* CellData.swift */; };
+		B35CB71627225E1F0006C139 /* DoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71127225E1F0006C139 /* DoneTextField.swift */; };
+		B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71227225E1F0006C139 /* StackViewCell.swift */; };
+		B35CB71827225E1F0006C139 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71327225E1F0006C139 /* Const.swift */; };
+		B35CB72B27225E4B0006C139 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71A27225E4B0006C139 /* SignupViewController.swift */; };
+		B35CB72C27225E4B0006C139 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71B27225E4B0006C139 /* SettingViewController.swift */; };
+		B35CB72D27225E4B0006C139 /* EditDeleteWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71C27225E4B0006C139 /* EditDeleteWeightViewController.swift */; };
+		B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71D27225E4B0006C139 /* AddViewController.swift */; };
+		B35CB72F27225E4B0006C139 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */; };
+		B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB71F27225E4B0006C139 /* WeightViewController.swift */; };
+		B35CB73127225E4B0006C139 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72027225E4B0006C139 /* TrainingViewController.swift */; };
+		B35CB73227225E4B0006C139 /* EditTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72127225E4B0006C139 /* EditTrainingViewController.swift */; };
+		B35CB73327225E4B0006C139 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72227225E4B0006C139 /* TableViewCell.swift */; };
+		B35CB73427225E4B0006C139 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35CB72327225E4B0006C139 /* AddViewController.xib */; };
+		B35CB73527225E4B0006C139 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35CB72427225E4B0006C139 /* TableViewCell.xib */; };
+		B35CB73627225E4B0006C139 /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72527225E4B0006C139 /* AddWorkoutViewController.swift */; };
+		B35CB73727225E4B0006C139 /* EditWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72627225E4B0006C139 /* EditWorkoutViewController.swift */; };
+		B35CB73827225E4B0006C139 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72727225E4B0006C139 /* LoginViewController.swift */; };
+		B35CB73927225E4B0006C139 /* AddTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */; };
+		B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72927225E4B0006C139 /* AddWeightViewController.swift */; };
+		B35CB73B27225E4B0006C139 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB72A27225E4B0006C139 /* TabBarController.swift */; };
+		B35CB73D27225E760006C139 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35CB73C27225E760006C139 /* Utils.swift */; };
+		B35CB74027225EFC0006C139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */; };
+		B35CB74127225EFC0006C139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B35CB73F27225EFC0006C139 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A61118C0918EF44051BDC826 /* Pods-TrailogIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.debug.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B313C9CE2726536E00113B59 /* PickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTextField.swift; sourceTree = "<group>"; };
 		B35CB6E5272255680006C139 /* TrailogIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrailogIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B35CB6E8272255680006C139 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B35CB6EA272255680006C139 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B35CB6EC272255680006C139 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B35CB6EF272255680006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B35CB6F1272255690006C139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B35CB6F4272255690006C139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B35CB6F6272255690006C139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B35CB6FE27225DC20006C139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalDismissInteractiveTransition.swift; sourceTree = "<group>"; };
+		B35CB70227225DE40006C139 /* SemiModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalPresenter.swift; sourceTree = "<group>"; };
+		B35CB70327225DE40006C139 /* SemiModalDismissAnimatedTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalDismissAnimatedTransition.swift; sourceTree = "<group>"; };
+		B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalOverlayView.swift; sourceTree = "<group>"; };
+		B35CB70527225DE40006C139 /* SemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SemiModal.h; sourceTree = "<group>"; };
+		B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalPresentationController.swift; sourceTree = "<group>"; };
+		B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemiModalIndicatorView.swift; sourceTree = "<group>"; };
+		B35CB70F27225E1F0006C139 /* Weight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
+		B35CB71027225E1F0006C139 /* CellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		B35CB71127225E1F0006C139 /* DoneTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTextField.swift; sourceTree = "<group>"; };
+		B35CB71227225E1F0006C139 /* StackViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewCell.swift; sourceTree = "<group>"; };
+		B35CB71327225E1F0006C139 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		B35CB71A27225E4B0006C139 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		B35CB71B27225E4B0006C139 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B35CB71C27225E4B0006C139 /* EditDeleteWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDeleteWeightViewController.swift; sourceTree = "<group>"; };
+		B35CB71D27225E4B0006C139 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		B35CB71F27225E4B0006C139 /* WeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightViewController.swift; sourceTree = "<group>"; };
+		B35CB72027225E4B0006C139 /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		B35CB72127225E4B0006C139 /* EditTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTrainingViewController.swift; sourceTree = "<group>"; };
+		B35CB72227225E4B0006C139 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		B35CB72327225E4B0006C139 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		B35CB72427225E4B0006C139 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		B35CB72527225E4B0006C139 /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
+		B35CB72627225E4B0006C139 /* EditWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWorkoutViewController.swift; sourceTree = "<group>"; };
+		B35CB72727225E4B0006C139 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTrainingViewController.swift; sourceTree = "<group>"; };
+		B35CB72927225E4B0006C139 /* AddWeightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWeightViewController.swift; sourceTree = "<group>"; };
+		B35CB72A27225E4B0006C139 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		B35CB73C27225E760006C139 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B35CB73F27225EFC0006C139 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrailogIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrailogIOS.release.xcconfig"; path = "Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +96,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9064981E479FFC786335302 /* Pods_TrailogIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161460646AF4C9A295A17B2F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A61118C0918EF44051BDC826 /* Pods-TrailogIOS.debug.xcconfig */,
+				E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		19DEF38F334657D2509C4790 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3A906F449C714C66A96D678 /* Pods_TrailogIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B35CB6DC272255680006C139 = {
 			isa = PBXGroup;
 			children = (
-				B35CB6E7272255680006C139 /* TrailogIOS */,
+				19DEF38F334657D2509C4790 /* Frameworks */,
+				161460646AF4C9A295A17B2F /* Pods */,
 				B35CB6E6272255680006C139 /* Products */,
+				B35CB6E7272255680006C139 /* TrailogIOS */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +141,70 @@
 		B35CB6E7272255680006C139 /* TrailogIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B35CB6FC27225DAA0006C139 /* GoogleService-Info.plist */,
+				B35CB6F6272255690006C139 /* Info.plist */,
+				B35CB73E27225EFC0006C139 /* LaunchScreen.storyboard */,
+				B35CB73F27225EFC0006C139 /* Main.storyboard */,
 				B35CB6E8272255680006C139 /* AppDelegate.swift */,
 				B35CB6EA272255680006C139 /* SceneDelegate.swift */,
-				B35CB6EC272255680006C139 /* ViewController.swift */,
-				B35CB6EE272255680006C139 /* Main.storyboard */,
-				B35CB6F1272255690006C139 /* Assets.xcassets */,
-				B35CB6F3272255690006C139 /* LaunchScreen.storyboard */,
-				B35CB6F6272255690006C139 /* Info.plist */,
+				B35CB73C27225E760006C139 /* Utils.swift */,
+				B35CB6FE27225DC20006C139 /* Assets.xcassets */,
+				B35CB71927225E4B0006C139 /* Controller */,
+				B35CB70E27225E1F0006C139 /* Model */,
+				B35CB70027225DE40006C139 /* SemiModal */,
 			);
 			path = TrailogIOS;
+			sourceTree = "<group>";
+		};
+		B35CB70027225DE40006C139 /* SemiModal */ = {
+			isa = PBXGroup;
+			children = (
+				B35CB70127225DE40006C139 /* SemiModalDismissInteractiveTransition.swift */,
+				B35CB70227225DE40006C139 /* SemiModalPresenter.swift */,
+				B35CB70327225DE40006C139 /* SemiModalDismissAnimatedTransition.swift */,
+				B35CB70427225DE40006C139 /* SemiModalOverlayView.swift */,
+				B35CB70527225DE40006C139 /* SemiModal.h */,
+				B35CB70627225DE40006C139 /* SemiModalPresentationController.swift */,
+				B35CB70727225DE40006C139 /* SemiModalIndicatorView.swift */,
+			);
+			path = SemiModal;
+			sourceTree = "<group>";
+		};
+		B35CB70E27225E1F0006C139 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B35CB70F27225E1F0006C139 /* Weight.swift */,
+				B35CB71027225E1F0006C139 /* CellData.swift */,
+				B35CB71127225E1F0006C139 /* DoneTextField.swift */,
+				B35CB71227225E1F0006C139 /* StackViewCell.swift */,
+				B35CB71327225E1F0006C139 /* Const.swift */,
+				B313C9CE2726536E00113B59 /* PickerTextField.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B35CB71927225E4B0006C139 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B35CB71A27225E4B0006C139 /* SignupViewController.swift */,
+				B35CB71B27225E4B0006C139 /* SettingViewController.swift */,
+				B35CB71C27225E4B0006C139 /* EditDeleteWeightViewController.swift */,
+				B35CB71D27225E4B0006C139 /* AddViewController.swift */,
+				B35CB71E27225E4B0006C139 /* WorkoutViewController.swift */,
+				B35CB71F27225E4B0006C139 /* WeightViewController.swift */,
+				B35CB72027225E4B0006C139 /* TrainingViewController.swift */,
+				B35CB72127225E4B0006C139 /* EditTrainingViewController.swift */,
+				B35CB72227225E4B0006C139 /* TableViewCell.swift */,
+				B35CB72327225E4B0006C139 /* AddViewController.xib */,
+				B35CB72427225E4B0006C139 /* TableViewCell.xib */,
+				B35CB72527225E4B0006C139 /* AddWorkoutViewController.swift */,
+				B35CB72627225E4B0006C139 /* EditWorkoutViewController.swift */,
+				B35CB72727225E4B0006C139 /* LoginViewController.swift */,
+				B35CB72827225E4B0006C139 /* AddTrainingViewController.swift */,
+				B35CB72927225E4B0006C139 /* AddWeightViewController.swift */,
+				B35CB72A27225E4B0006C139 /* TabBarController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B35CB6F9272255690006C139 /* Build configuration list for PBXNativeTarget "TrailogIOS" */;
 			buildPhases = (
+				D258A1F7D6AF4C8ACE64D7CC /* [CP] Check Pods Manifest.lock */,
 				B35CB6E1272255680006C139 /* Sources */,
 				B35CB6E2272255680006C139 /* Frameworks */,
 				B35CB6E3272255680006C139 /* Resources */,
+				7E923D8E403BBC58299384E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,45 +266,98 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B35CB6F5272255690006C139 /* LaunchScreen.storyboard in Resources */,
-				B35CB6F2272255690006C139 /* Assets.xcassets in Resources */,
-				B35CB6F0272255680006C139 /* Main.storyboard in Resources */,
+				B35CB73527225E4B0006C139 /* TableViewCell.xib in Resources */,
+				B35CB6FD27225DAA0006C139 /* GoogleService-Info.plist in Resources */,
+				B35CB73427225E4B0006C139 /* AddViewController.xib in Resources */,
+				B35CB74127225EFC0006C139 /* Main.storyboard in Resources */,
+				B35CB74027225EFC0006C139 /* LaunchScreen.storyboard in Resources */,
+				B35CB6FF27225DC20006C139 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E923D8E403BBC58299384E2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TrailogIOS/Pods-TrailogIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D258A1F7D6AF4C8ACE64D7CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrailogIOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B35CB6E1272255680006C139 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B35CB6ED272255680006C139 /* ViewController.swift in Sources */,
+				B35CB73A27225E4B0006C139 /* AddWeightViewController.swift in Sources */,
+				B35CB72D27225E4B0006C139 /* EditDeleteWeightViewController.swift in Sources */,
+				B35CB70B27225DE40006C139 /* SemiModalOverlayView.swift in Sources */,
+				B35CB72E27225E4B0006C139 /* AddViewController.swift in Sources */,
+				B35CB73127225E4B0006C139 /* TrainingViewController.swift in Sources */,
+				B35CB73D27225E760006C139 /* Utils.swift in Sources */,
+				B35CB73227225E4B0006C139 /* EditTrainingViewController.swift in Sources */,
+				B35CB70D27225DE40006C139 /* SemiModalIndicatorView.swift in Sources */,
+				B35CB73027225E4B0006C139 /* WeightViewController.swift in Sources */,
+				B35CB72C27225E4B0006C139 /* SettingViewController.swift in Sources */,
+				B35CB71727225E1F0006C139 /* StackViewCell.swift in Sources */,
+				B313C9CF2726536E00113B59 /* PickerTextField.swift in Sources */,
+				B35CB73927225E4B0006C139 /* AddTrainingViewController.swift in Sources */,
 				B35CB6E9272255680006C139 /* AppDelegate.swift in Sources */,
+				B35CB70C27225DE40006C139 /* SemiModalPresentationController.swift in Sources */,
+				B35CB71427225E1F0006C139 /* Weight.swift in Sources */,
+				B35CB73727225E4B0006C139 /* EditWorkoutViewController.swift in Sources */,
+				B35CB70A27225DE40006C139 /* SemiModalDismissAnimatedTransition.swift in Sources */,
+				B35CB70827225DE40006C139 /* SemiModalDismissInteractiveTransition.swift in Sources */,
 				B35CB6EB272255680006C139 /* SceneDelegate.swift in Sources */,
+				B35CB71627225E1F0006C139 /* DoneTextField.swift in Sources */,
+				B35CB72F27225E4B0006C139 /* WorkoutViewController.swift in Sources */,
+				B35CB70927225DE40006C139 /* SemiModalPresenter.swift in Sources */,
+				B35CB72B27225E4B0006C139 /* SignupViewController.swift in Sources */,
+				B35CB73B27225E4B0006C139 /* TabBarController.swift in Sources */,
+				B35CB73627225E4B0006C139 /* AddWorkoutViewController.swift in Sources */,
+				B35CB71527225E1F0006C139 /* CellData.swift in Sources */,
+				B35CB71827225E1F0006C139 /* Const.swift in Sources */,
+				B35CB73827225E4B0006C139 /* LoginViewController.swift in Sources */,
+				B35CB73327225E4B0006C139 /* TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B35CB6EE272255680006C139 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B35CB6EF272255680006C139 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B35CB6F3272255690006C139 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B35CB6F4272255690006C139 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B35CB6F7272255690006C139 /* Debug */ = {
@@ -283,6 +478,7 @@
 		};
 		B35CB6FA272255690006C139 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A61118C0918EF44051BDC826 /* Pods-TrailogIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -293,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codaid.TrailogIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cod-aid.TrailogIOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -302,6 +498,7 @@
 		};
 		B35CB6FB272255690006C139 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E123B1AAC54C3785C84A5AF2 /* Pods-TrailogIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,7 +509,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codaid.TrailogIOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cod-aid.TrailogIOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
