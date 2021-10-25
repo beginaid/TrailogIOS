@@ -11,7 +11,6 @@ class AddWeightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        weightTextField.keyboardType = UIKeyboardType.decimalPad
         Utils.setButtonStyle(registerButton, Const.colorAccent)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -26,27 +25,25 @@ class AddWeightViewController: UIViewController {
     @IBAction func handleRegisterButton(_ sender: Any) {
         SVProgressHUD.show()
         if let user = Auth.auth().currentUser {
-            let uid = user.uid
             let date = Utils.getDateFromDatePicker(datePicker)
-            
             if let weightText = weightTextField.text {
                 if weightText.isEmpty {
                     SVProgressHUD.dismiss()
-                    SVProgressHUD.showError(withStatus: "体重を入力して下さい")
+                    Utils.showSuccess(Const.errorFormsNotFilled)
                     return
                 }
                 let weightDic = [
-                    "weight": weightText,
-                    "createdAd": FieldValue.serverTimestamp(),
+                    Const.firebaseFieldWeight: weightText,
+                    Const.firebaseFieldCreatedAt: FieldValue.serverTimestamp(),
                 ] as [String : Any]
-                db.collection("weights_\(uid)").document(date).setData(weightDic) { err in
+                db.collection("\(Const.firebaseCollectionWeight)_\(user.uid)").document(date).setData(weightDic) { err in
                     if let err = err {
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showError(withStatus: "エラーが発生しました")
+                        Utils.showError(Const.errorDefault)
                         print(err)
                     } else {
                         SVProgressHUD.dismiss()
-                        SVProgressHUD.showSuccess(withStatus: "体重追加完了")
+                        Utils.showSuccess(Const.successAdd)
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                     }
                 }
@@ -70,14 +67,5 @@ class AddWeightViewController: UIViewController {
             self.view.frame.origin.y = 0
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        self.view.endEditing(true)
-        return true
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
+        
 }

@@ -11,8 +11,8 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Utils.setButtonStyle(loginButton, Const.colorAccent)
         signupTextView.delegate = self
+        Utils.setButtonStyle(loginButton, Const.colorAccent)
         Utils.setHyperTextStyle(signupTextView)
     }
     
@@ -21,29 +21,26 @@ class LoginViewController: UIViewController, UITextViewDelegate {
         if let address = mailTextField.text,
            let password = passwordTextField.text {
             if address.isEmpty || password.isEmpty {
-                SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+                Utils.showError(Const.errorDefault)
                 return
             }
             SVProgressHUD.show()
             Auth.auth().signIn(withEmail: address, password: password) { authResult, error in
                 if error == nil {
                     SVProgressHUD.dismiss()
-                    let mainViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                    let keywindow = UIApplication.shared.windows.first { $0.isKeyWindow }
-                    keywindow!.rootViewController = mainViewController
+                    Utils.updateRootWindow(self.storyboard, Const.identifierMain)
                     return
                 } else {
                     if let errCode = AuthErrorCode(rawValue: error!._code) {
                         switch errCode {
                         case .invalidEmail:
-                            SVProgressHUD.showError(withStatus: "正しいメールアドレスを\n入力してください")
-                        case .emailAlreadyInUse:
-                            SVProgressHUD.showError(withStatus: "このメールアドレスは\nすでに使われています")
+                            Utils.showError(Const.errorEmailInvalid)
                         case .weakPassword:
-                            SVProgressHUD.showError(withStatus: "パスワードは6文字以上で\n入力してください")
+                            Utils.showError(Const.errorPasswordTooShort)
                         default:
-                            SVProgressHUD.showError(withStatus: "エラーが起きました\n再度お試しください")
+                            Utils.showError(Const.errorDefault)
                         }
+                        SVProgressHUD.dismiss()
                         return
                     }
                 }
@@ -52,7 +49,7 @@ class LoginViewController: UIViewController, UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-        self.performSegue(withIdentifier: "LoginToSignup", sender: self)
+        self.performSegue(withIdentifier: Const.identifierLoginToSignup, sender: self)
         return false
     }
     

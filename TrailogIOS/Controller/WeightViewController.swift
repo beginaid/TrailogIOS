@@ -21,6 +21,7 @@ class WeightViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        SVProgressHUD.show()
         if let user = Auth.auth().currentUser {
             let docRef = Firestore.firestore().collection("\(Const.firebaseCollectionNameWeight)_\(user.uid)")
             listener = docRef.addSnapshotListener() { (querySnapshot, error) in
@@ -44,6 +45,7 @@ class WeightViewController: UIViewController, ChartViewDelegate {
                     self.noDataLabel.isHidden = false
                     self.lineChart.isHidden = true
                 }
+                SVProgressHUD.dismiss()
             }
         }
     }

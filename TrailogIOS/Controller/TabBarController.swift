@@ -13,7 +13,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser == nil {
-            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: "Navigation")
+            let loginViewController = self.storyboard?.instantiateViewController(withIdentifier: Const.identifierNavigation)
             loginViewController!.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             self.present(loginViewController!, animated: true, completion: nil)
         }
@@ -21,7 +21,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is AddViewController {
-            let addViewController = storyboard!.instantiateViewController(withIdentifier: "Add")
+            let addViewController = storyboard!.instantiateViewController(withIdentifier: Const.identifierAdd)
             semiModalPresenter.viewController = addViewController
             present(addViewController, animated: true)
             return false
@@ -31,17 +31,17 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func showAddWeight() {
-        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "AddWeight")
+        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: Const.identifierAddWeight)
         self.present(targetViewController, animated: true, completion: nil)
     }
     
     func showAddTraining() {
-        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "AddTraining")
+        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: Const.identifierAddTraining)
         self.present(targetViewController, animated: true, completion: nil)
     }
     
     func showAddWorkout() {
-        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: "AddWorkout")
+        let targetViewController = self.storyboard!.instantiateViewController(withIdentifier: Const.identifierAddWorkout)
         self.present(targetViewController, animated: true, completion: nil)
     }
 }
